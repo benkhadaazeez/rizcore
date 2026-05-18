@@ -5,7 +5,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const mv = useMotionValue(0);
-  const rounded = useTransform(mv, (v) => Math.floor(v).toLocaleString());
+  const rounded = useTransform(mv, (v) => String(Math.floor(v)));
   useEffect(() => {
     if (inView) {
       const controls = animate(mv, to, { duration: 2, ease: [0.22, 1, 0.36, 1] });
