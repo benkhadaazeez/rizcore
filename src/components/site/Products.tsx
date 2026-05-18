@@ -1,73 +1,276 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight, Leaf, Award, Globe2 } from "lucide-react";
 import dates from "@/assets/product-dates.jpg";
 import orange from "@/assets/product-orange-blossom.jpg";
 import olive from "@/assets/product-olive-oil.jpg";
 import margarine from "@/assets/product-margarine.jpg";
 import privateLabel from "@/assets/product-private-label.jpg";
 
-const products = [
-  { img: dates, name: "Algerian Dates", tag: "Premium Deglet Nour & Medjool", desc: "Hand-selected from the palm groves of Biskra and Tolga." },
-  { img: olive, name: "Extra Virgin Olive Oil", tag: "Cold-pressed · Single origin", desc: "Mediterranean groves, low acidity, intense aromatic profile." },
-  { img: orange, name: "Orange Blossom Water", tag: "Distilled · Artisanal", desc: "Traditional double distillation of pure Citrus aurantium petals." },
-  { img: margarine, name: "Premium Margarine", tag: "Industrial & retail formats", desc: "Tailored fat profiles for bakery, pastry and food industries." },
-  { img: privateLabel, name: "Private Label", tag: "OEM · Turnkey", desc: "Custom formulation, packaging and branding for your market." },
+type Product = {
+  img: string;
+  name: string;
+  tag: string;
+  desc: string;
+  origin: string;
+  grade: string;
+  formats: string[];
+  index: string;
+  featured?: boolean;
+};
+
+const products: Product[] = [
+  {
+    img: dates,
+    name: "Algerian Dates",
+    tag: "Deglet Nour · Medjool",
+    desc: "Hand-selected from the legendary palm groves of Biskra and Tolga. Honey-amber translucency, silky texture, balanced sweetness.",
+    origin: "Biskra · Tolga",
+    grade: "Extra · Class I",
+    formats: ["Bulk 5/10kg", "Retail 250g–1kg", "Branched", "Pitted"],
+    index: "01",
+    featured: true,
+  },
+  {
+    img: olive,
+    name: "Extra Virgin Olive Oil",
+    tag: "Cold-pressed · Single origin",
+    desc: "Mediterranean groves of Kabylie. Low acidity (≤0.3%), intense aromatic profile, peppery finish.",
+    origin: "Kabylie",
+    grade: "Extra Virgin",
+    formats: ["Tin 1–5 L", "Glass 500 ml", "Bulk IBC"],
+    index: "02",
+  },
+  {
+    img: orange,
+    name: "Orange Blossom Water",
+    tag: "Distilled · Artisanal",
+    desc: "Traditional double distillation of pure Citrus aurantium petals. Crystal clarity, delicate floral signature.",
+    origin: "Blida · Mitidja",
+    grade: "100% Pure",
+    formats: ["Glass 250–500 ml", "Bulk 25 L"],
+    index: "03",
+  },
+  {
+    img: margarine,
+    name: "Premium Margarine",
+    tag: "Industrial & retail",
+    desc: "Tailored fat profiles for bakery, pastry and food industries. Stable plasticity, clean melt.",
+    origin: "Algiers facility",
+    grade: "Food grade",
+    formats: ["Block 10–25 kg", "Retail 250 g"],
+    index: "04",
+  },
+  {
+    img: privateLabel,
+    name: "Private Label",
+    tag: "OEM · Turnkey",
+    desc: "Custom formulation, packaging and branding for your market. From concept to container in 60 days.",
+    origin: "Anywhere",
+    grade: "Bespoke",
+    formats: ["Full OEM", "Co-pack", "White label"],
+    index: "05",
+  },
+];
+
+const certs = [
+  { icon: Award, label: "HACCP" },
+  { icon: Leaf, label: "Organic ready" },
+  { icon: Globe2, label: "ISO 22000" },
 ];
 
 export function Products() {
   return (
-    <section id="products" className="relative bg-background py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.3em] text-brand font-medium">
-              03 — Products
-            </div>
-            <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep leading-[1.05]">
-              A curated <span className="text-brand">portfolio</span> of Algerian excellence.
-            </h2>
+    <section
+      id="products"
+      className="relative bg-background py-32 lg:py-40 overflow-hidden"
+    >
+      {/* Ambient decorations */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(var(--deep)_1px,transparent_1px),linear-gradient(90deg,var(--deep)_1px,transparent_1px)] [background-size:120px_120px]"
+        style={{ maskImage: "radial-gradient(ellipse at center, black 20%, transparent 70%)" }}
+      />
+      <div className="pointer-events-none absolute -top-40 right-0 size-[600px] rounded-full bg-leaf/10 blur-[160px]" />
+      <div className="pointer-events-none absolute bottom-0 -left-40 size-[520px] rounded-full bg-brand/10 blur-[160px]" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        {/* Header */}
+        <div className="grid lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-brand font-medium"
+            >
+              <span className="h-px w-10 bg-brand" />
+              03 — Portfolio
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.05 }}
+              className="mt-6 font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-bold text-deep leading-[1.02] tracking-tight"
+            >
+              A curated portfolio of{" "}
+              <span className="italic font-light text-brand">Algerian</span>{" "}
+              excellence.
+            </motion.h2>
           </div>
-          <p className="text-muted-foreground max-w-md">
-            Each product is sourced, controlled and shipped under the RIZCORE
-            standard — premium grade only.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-5 space-y-6"
+          >
+            <p className="text-muted-foreground text-base leading-relaxed">
+              Each product is sourced, controlled and shipped under the RIZCORE
+              standard — premium grade only, fully traceable from farm to port.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {certs.map((c) => (
+                <span
+                  key={c.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-deep/80"
+                >
+                  <c.icon className="size-3.5 text-leaf" />
+                  {c.label}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Grid */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 auto-rows-[minmax(440px,_auto)]">
           {products.map((p, i) => (
-            <motion.article
-              key={p.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative overflow-hidden rounded-3xl bg-deep shadow-card ${
-                i === 0 ? "lg:row-span-2 lg:col-span-1" : ""
-              }`}
-            >
-              <div className={`relative overflow-hidden ${i === 0 ? "aspect-[4/5] lg:aspect-[3/5]" : "aspect-[4/5]"}`}>
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  width={1024}
-                  height={1280}
-                  className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 inset-x-0 p-7 lg:p-8 text-deep-foreground">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">{p.tag}</div>
-                <h3 className="mt-2 font-display text-2xl lg:text-3xl font-bold">{p.name}</h3>
-                <p className="mt-3 text-sm text-deep-foreground/70 max-w-sm">{p.desc}</p>
-                <div className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-deep-foreground/80 group-hover:text-leaf transition-colors">
-                  Request datasheet
-                  <span>→</span>
-                </div>
-              </div>
-            </motion.article>
+            <ProductCard key={p.name} p={p} i={i} />
           ))}
+
+          {/* CTA tile */}
+          <motion.a
+            href="#contact"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative overflow-hidden rounded-[28px] bg-gradient-to-br from-deep via-deep to-brand p-8 lg:p-10 flex flex-col justify-between min-h-[440px] text-deep-foreground shadow-card"
+          >
+            <div
+              aria-hidden
+              className="absolute inset-0 opacity-30 [background-image:radial-gradient(oklch(0.78_0.19_135/0.6)_1px,transparent_1px)] [background-size:24px_24px]"
+              style={{ maskImage: "radial-gradient(ellipse at top right, black, transparent 70%)" }}
+            />
+            <div className="relative">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">Next step</div>
+              <h3 className="mt-4 font-display text-3xl lg:text-4xl font-bold leading-tight">
+                Looking for a product not listed?
+              </h3>
+              <p className="mt-4 text-deep-foreground/70 max-w-sm">
+                Our sourcing network covers the full Algerian agri-food
+                ecosystem. Tell us what you need.
+              </p>
+            </div>
+            <div className="relative inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-deep-foreground group-hover:text-leaf transition-colors">
+              Talk to a trader
+              <span className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 group-hover:bg-leaf group-hover:border-leaf group-hover:text-deep transition-all">
+                <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform" />
+              </span>
+            </div>
+          </motion.a>
         </div>
       </div>
     </section>
+  );
+}
+
+function ProductCard({ p, i }: { p: Product; i: number }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      className={`group relative overflow-hidden rounded-[28px] bg-deep text-deep-foreground shadow-card isolate ${
+        p.featured ? "md:col-span-2 lg:col-span-2 lg:row-span-1" : ""
+      }`}
+    >
+      {/* Image */}
+      <div className="absolute inset-0">
+        <img
+          src={p.img}
+          alt={p.name}
+          loading="lazy"
+          width={1024}
+          height={1280}
+          className="size-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/70 to-deep/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-deep/40 via-transparent to-transparent" />
+      </div>
+
+      {/* Hover sheen */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.19_135/0.18),transparent_50%)]"
+      />
+
+      {/* Top row */}
+      <div className="relative z-10 flex items-start justify-between p-7 lg:p-8">
+        <span className="font-display text-xs tracking-[0.3em] text-deep-foreground/50">
+          {p.index}
+        </span>
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-leaf">
+          <Leaf className="size-3" />
+          {p.grade}
+        </span>
+      </div>
+
+      {/* Bottom content */}
+      <div className="absolute bottom-0 inset-x-0 z-10 p-7 lg:p-8">
+        <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">
+          {p.tag}
+        </div>
+        <h3 className="mt-3 font-display text-2xl lg:text-3xl font-bold leading-tight">
+          {p.name}
+        </h3>
+
+        <p className="mt-3 text-sm text-deep-foreground/65 max-w-md leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+          {p.desc}
+        </p>
+
+        {/* Reveal panel */}
+        <div className="mt-5 grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+          <div className="overflow-hidden">
+            <div className="pt-2 pb-1 flex flex-wrap gap-1.5">
+              {p.formats.map((f) => (
+                <span
+                  key={f}
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-deep-foreground/75"
+                >
+                  {f}
+                </span>
+              ))}
+            </div>
+            <div className="mt-3 text-[11px] text-deep-foreground/55">
+              <span className="text-deep-foreground/40 uppercase tracking-[0.25em]">Origin · </span>
+              {p.origin}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-5">
+          <span className="text-xs uppercase tracking-[0.3em] text-deep-foreground/75 group-hover:text-leaf transition-colors">
+            Request datasheet
+          </span>
+          <span className="inline-flex size-10 items-center justify-center rounded-full border border-white/15 group-hover:bg-leaf group-hover:border-leaf group-hover:text-deep transition-all">
+            <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform duration-500" />
+          </span>
+        </div>
+      </div>
+    </motion.article>
   );
 }
