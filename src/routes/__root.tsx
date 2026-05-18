@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "RIZCORE exports premium Algerian dates, orange blossom water, olive oil, margarine and private-label solutions across the world." },
       { name: "author", content: "RIZCORE" },
       { property: "og:title", content: "RIZCORE — Premium International Export" },
-      { property: "og:description", content: "Premium Algerian export house connecting Africa and the world." },
+      { property: "og:description", content: "RIZCORE exports premium Algerian dates, orange blossom water, olive oil, margarine and private-label solutions across the world." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "RIZCORE — Premium International Export" },
+      { name: "twitter:description", content: "RIZCORE exports premium Algerian dates, orange blossom water, olive oil, margarine and private-label solutions across the world." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e53d0570-c0ee-441b-8cd4-7356de55b963/id-preview-a2ad4989--ba5d4852-a71a-42f5-a45a-88403a0b3af3.lovable.app-1779108288178.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e53d0570-c0ee-441b-8cd4-7356de55b963/id-preview-a2ad4989--ba5d4852-a71a-42f5-a45a-88403a0b3af3.lovable.app-1779108288178.png" },
     ],
     links: [
       {
