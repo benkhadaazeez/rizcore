@@ -26,9 +26,9 @@ export function Contact() {
 
           <div className="mt-12 space-y-6">
             {[
-              { Icon: MapPin, k: "Headquarters", v: "Algiers, Algeria · Mediterranean Trade Zone" },
-              { Icon: Mail, k: "Export desk", v: "export@rizcore.com" },
-              { Icon: Phone, k: "International", v: "+213 (0) 555 000 000" },
+              { Icon: MapPin, k: "Headquarters", v: "Algiers, Algeria" },
+              { Icon: Mail, k: "Export desk", v: "contact.rizcore@gmail.com" },
+              { Icon: Phone, k: "Phone · WhatsApp", v: "+213 551 52 76 81" },
             ].map(({ Icon, k, v }) => (
               <div key={k} className="flex items-start gap-4">
                 <div className="size-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-leaf shrink-0">

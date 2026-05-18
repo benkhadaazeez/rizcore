@@ -12,23 +12,24 @@ export function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="text-xs uppercase tracking-[0.3em] text-brand font-medium">
-            01 — About RIZCORE
+            01 — About RIZCORE · Since 2025
           </div>
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep leading-[1.05]">
-            A trusted bridge between<br />
-            <span className="text-brand">producers</span> and <span className="text-brand">global markets</span>.
+            An Algerian export house<br />
+            built for <span className="text-brand">African markets</span>.
           </h2>
           <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-            For more than a decade, RIZCORE has built strategic supply chains from
-            Algeria's finest growers to distributors, retailers and food industries
-            worldwide. Quality control, traceability and long-term partnership are
-            at the core of every shipment we sign.
+            Founded in 2025 in Algiers, RIZCORE connects Algerian producers with
+            distributors, wholesalers and retailers across Africa. Our focus:
+            premium Algerian dates and Made in Algeria food products — delivered
+            with the rigor, traceability and reliability international trade
+            demands.
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-8">
             {[
-              { k: "Quality first", v: "ISO-grade selection, HACCP processes and full traceability on every batch." },
-              { k: "Global logistics", v: "Sea, air and overland freight to Europe, Africa, Gulf and North America." },
+              { k: "Africa-focused", v: "Active in Niger and Nigeria. Expanding to Burkina Faso, Côte d'Ivoire and Chad." },
+              { k: "Trusted sourcing", v: "Direct relationships with Algerian producers — full traceability, premium grade only." },
             ].map((it) => (
               <div key={it.k} className="border-l-2 border-leaf pl-5">
                 <div className="font-display font-semibold text-deep">{it.k}</div>
@@ -57,8 +58,8 @@ export function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 text-deep-foreground">
-              <div className="text-xs uppercase tracking-[0.3em] text-leaf">Worldwide presence</div>
-              <div className="mt-3 font-display text-2xl font-bold">28 countries · 4 continents</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-leaf">Headquarters</div>
+              <div className="mt-3 font-display text-2xl font-bold">Algiers · Algeria</div>
             </div>
           </div>
         </motion.div>

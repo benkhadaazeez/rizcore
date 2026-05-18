@@ -12,8 +12,8 @@ export function Footer() {
             <span className="font-display font-bold text-deep-foreground text-lg">RIZCORE</span>
           </div>
           <p className="mt-5 text-sm max-w-sm leading-relaxed">
-            Premium international export house based in Algiers. Bringing the
-            finest Algerian products to global markets.
+            Algerian export company based in Algiers. Bringing premium Algerian
+            dates and Made in Algeria products to African markets — and beyond.
           </p>
         </div>
 
@@ -32,8 +32,8 @@ export function Footer() {
           <div className="text-xs uppercase tracking-[0.25em] text-deep-foreground/50">Contact</div>
           <ul className="mt-5 space-y-2 text-sm">
             <li>Algiers, Algeria</li>
-            <li>export@rizcore.com</li>
-            <li>+213 (0) 555 000 000</li>
+            <li>contact.rizcore@gmail.com</li>
+            <li>+213 551 52 76 81</li>
           </ul>
         </div>
       </div>
