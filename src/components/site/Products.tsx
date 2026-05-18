@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Leaf, Award, Globe2 } from "lucide-react";
 import dates from "@/assets/product-dates.jpg";
-import orange from "@/assets/product-orange-blossom.jpg";
-import olive from "@/assets/product-olive-oil.jpg";
-import margarine from "@/assets/product-margarine.jpg";
-import privateLabel from "@/assets/product-private-label.jpg";
+import foodAlgeria from "@/assets/trade-food-algeria.jpg";
+import containers from "@/assets/trade-containers.jpg";
+import warehouse from "@/assets/trade-warehouse.jpg";
+import cargoShip from "@/assets/trade-cargo-ship.jpg";
+import africaMarket from "@/assets/trade-africa-market.jpg";
 
 type Product = {
   img: string;
@@ -12,7 +13,7 @@ type Product = {
   tag: string;
   desc: string;
   origin: string;
-  grade: string;
+  status: "core" | "on-request";
   formats: string[];
   index: string;
   featured?: boolean;
@@ -22,53 +23,63 @@ const products: Product[] = [
   {
     img: dates,
     name: "Algerian Dates",
-    tag: "Deglet Nour · Medjool",
-    desc: "Hand-selected from the legendary palm groves of Biskra and Tolga. Honey-amber translucency, silky texture, balanced sweetness.",
-    origin: "Biskra · Tolga",
-    grade: "Extra · Class I",
-    formats: ["Bulk 5/10kg", "Retail 250g–1kg", "Branched", "Pitted"],
+    tag: "Core expertise · Deglet Nour",
+    desc: "Hand-selected from the legendary palm groves of southern Algeria. Honey-amber translucency, silky texture, balanced sweetness — our flagship export.",
+    origin: "Biskra · Tolga · Ouargla",
+    status: "core",
+    formats: ["Bulk 5/10 kg", "Retail 250 g–1 kg", "Branched", "Pitted"],
     index: "01",
     featured: true,
   },
   {
-    img: olive,
-    name: "Extra Virgin Olive Oil",
-    tag: "Cold-pressed · Single origin",
-    desc: "Mediterranean groves of Kabylie. Low acidity (≤0.3%), intense aromatic profile, peppery finish.",
-    origin: "Kabylie",
-    grade: "Extra Virgin",
-    formats: ["Tin 1–5 L", "Glass 500 ml", "Bulk IBC"],
+    img: foodAlgeria,
+    name: "Made in Algeria Food",
+    tag: "Core expertise · Food products",
+    desc: "A curated selection of Algerian food products — olive oil, orange blossom water, traditional pantry staples — sourced directly from trusted local producers.",
+    origin: "Algeria — multi-region",
+    status: "core",
+    formats: ["Retail packs", "Bulk", "Private label"],
     index: "02",
   },
   {
-    img: orange,
-    name: "Orange Blossom Water",
-    tag: "Distilled · Artisanal",
-    desc: "Traditional double distillation of pure Citrus aurantium petals. Crystal clarity, delicate floral signature.",
-    origin: "Blida · Mitidja",
-    grade: "100% Pure",
-    formats: ["Glass 250–500 ml", "Bulk 25 L"],
+    img: containers,
+    name: "Construction Materials",
+    tag: "Available on request",
+    desc: "Cement, steel, ceramics and finishing materials sourced from Algerian manufacturers. Container-grade volumes for African construction projects.",
+    origin: "Algeria",
+    status: "on-request",
+    formats: ["FCL", "Project-based"],
     index: "03",
   },
   {
-    img: margarine,
-    name: "Premium Margarine",
-    tag: "Industrial & retail",
-    desc: "Tailored fat profiles for bakery, pastry and food industries. Stable plasticity, clean melt.",
-    origin: "Algiers facility",
-    grade: "Food grade",
-    formats: ["Block 10–25 kg", "Retail 250 g"],
+    img: africaMarket,
+    name: "Cosmetics",
+    tag: "Available on request",
+    desc: "Skincare, hair and personal care lines built for African markets — including natural and halal-certified ranges. Private label and turnkey programs.",
+    origin: "Algeria",
+    status: "on-request",
+    formats: ["Retail", "OEM", "Private label"],
     index: "04",
   },
   {
-    img: privateLabel,
-    name: "Private Label",
-    tag: "OEM · Turnkey",
-    desc: "Custom formulation, packaging and branding for your market. From concept to container in 60 days.",
-    origin: "Anywhere",
-    grade: "Bespoke",
-    formats: ["Full OEM", "Co-pack", "White label"],
+    img: warehouse,
+    name: "Household Products",
+    tag: "Available on request",
+    desc: "Detergents, cleaning agents and everyday home essentials. Reliable volume supply for distributors and wholesalers across West and Central Africa.",
+    origin: "Algeria",
+    status: "on-request",
+    formats: ["Retail", "Bulk", "Distributor packs"],
     index: "05",
+  },
+  {
+    img: cargoShip,
+    name: "Industrial Supplies",
+    tag: "Available on request",
+    desc: "B2B industrial inputs, equipment and consumables. Sourced and shipped on demand through our Algerian supplier network.",
+    origin: "Algeria",
+    status: "on-request",
+    formats: ["Project sourcing", "FCL", "Custom"],
+    index: "06",
   },
 ];
 
@@ -114,9 +125,9 @@ export function Products() {
               transition={{ duration: 0.8, delay: 0.05 }}
               className="mt-6 font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-bold text-deep leading-[1.02] tracking-tight"
             >
-              A curated portfolio of{" "}
-              <span className="italic font-light text-brand">Algerian</span>{" "}
-              excellence.
+              Algerian dates,{" "}
+              <span className="italic font-light text-brand">Made in Algeria</span>{" "}
+              — and beyond on request.
             </motion.h2>
           </div>
           <motion.div
@@ -127,8 +138,9 @@ export function Products() {
             className="lg:col-span-5 space-y-6"
           >
             <p className="text-muted-foreground text-base leading-relaxed">
-              Each product is sourced, controlled and shipped under the RIZCORE
-              standard — premium grade only, fully traceable from farm to port.
+              Our core expertise is premium Algerian dates and Made in Algeria
+              food products. Beyond food, we source construction materials,
+              cosmetics, household goods and industrial supplies on request.
             </p>
             <div className="flex flex-wrap gap-2">
               {certs.map((c) => (
@@ -167,15 +179,15 @@ export function Products() {
             <div className="relative">
               <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">Next step</div>
               <h3 className="mt-4 font-display text-3xl lg:text-4xl font-bold leading-tight">
-                Looking for a product not listed?
+                Need a specific product for your market?
               </h3>
               <p className="mt-4 text-deep-foreground/70 max-w-sm">
-                Our sourcing network covers the full Algerian agri-food
-                ecosystem. Tell us what you need.
+                Our Algerian sourcing network goes well beyond this list. Tell
+                us your target market and volumes — we'll build the offer.
               </p>
             </div>
             <div className="relative inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-deep-foreground group-hover:text-leaf transition-colors">
-              Talk to a trader
+              Request a quote
               <span className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 group-hover:bg-leaf group-hover:border-leaf group-hover:text-deep transition-all">
                 <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform" />
               </span>
@@ -225,7 +237,7 @@ function ProductCard({ p, i }: { p: Product; i: number }) {
         </span>
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-leaf">
           <Leaf className="size-3" />
-          {p.grade}
+          {p.status === "core" ? "Core export" : "On request"}
         </span>
       </div>
 
