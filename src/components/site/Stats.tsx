@@ -21,10 +21,10 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 const stats = [
-  { v: 28, s: "+", label: "Countries served" },
-  { v: 150, s: "+", label: "B2B partners" },
-  { v: 12000, s: "T", label: "Annual export volume" },
-  { v: 99, s: "%", label: "On-time delivery" },
+  { v: 2025, s: "", label: "Activity started" },
+  { v: 2, s: "", label: "Active African markets" },
+  { v: 3, s: "+", label: "Upcoming countries" },
+  { v: 100, s: "%", label: "Made in Algeria" },
 ];
 
 export function Stats() {

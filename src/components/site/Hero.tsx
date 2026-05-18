@@ -15,18 +15,18 @@ const headline = [
 ];
 
 const lanes = [
-  "Algiers → Marseille",
-  "Oran → Dakar",
-  "Annaba → Dubai",
-  "Bejaïa → Jeddah",
-  "Ghazaouet → Abidjan",
-  "Skikda → Istanbul",
+  "Algiers → Niamey",
+  "Algiers → Abuja",
+  "Algiers → Ouagadougou",
+  "Algiers → Abidjan",
+  "Algiers → N'Djamena",
+  "Algiers → Lagos",
 ];
 
 const tiles = [
-  { icon: Globe2, k: "32+", v: "Countries served" },
-  { icon: Ship, k: "1.2k", v: "Containers / year" },
-  { icon: Anchor, k: "5", v: "Active sea routes" },
+  { icon: Globe2, k: "2025", v: "Activity started" },
+  { icon: Ship, k: "2", v: "Active markets" },
+  { icon: Anchor, k: "3+", v: "Upcoming expansions" },
 ];
 
 export function Hero() {
@@ -118,9 +118,9 @@ export function Hero() {
             <span className="absolute inline-flex size-full rounded-full bg-leaf opacity-75 animate-ping" />
             <span className="relative inline-flex size-2 rounded-full bg-leaf" />
           </span>
-          International Export House
+          Algerian Export House
           <span className="h-3 w-px bg-white/20" />
-          Est. Algeria
+          Africa-focused · Est. 2025
         </motion.div>
 
         {/* Headline with staggered word reveal */}
@@ -151,9 +151,9 @@ export function Hero() {
             transition={{ delay: 1.6, duration: 0.9 }}
             className="max-w-xl text-base lg:text-lg text-deep-foreground/70 leading-relaxed"
           >
-            RIZCORE is a premium international trading house delivering authentic Algerian
-            products — dates, olive oil, orange blossom water and private-label solutions —
-            across five continents.
+            RIZCORE is an Algerian export company delivering premium dates and
+            Made in Algeria food products across African markets — starting from
+            Niger and Nigeria, expanding fast through West and Central Africa.
           </motion.p>
 
           <motion.div

@@ -1,15 +1,25 @@
 import { motion } from "framer-motion";
 
 // Hub cities on the Africa SVG (coords in viewBox 0 0 500 600)
-const hubs = [
-  { name: "Algiers", x: 248, y: 60, primary: true },
-  { name: "Casablanca", x: 175, y: 90 },
-  { name: "Dakar", x: 95, y: 235 },
-  { name: "Lagos", x: 240, y: 295 },
-  { name: "Abidjan", x: 175, y: 290 },
-  { name: "Nairobi", x: 365, y: 360 },
-  { name: "Cairo", x: 320, y: 110 },
-  { name: "Johannesburg", x: 320, y: 510 },
+type Hub = {
+  name: string;
+  country?: string;
+  x: number;
+  y: number;
+  primary?: boolean;
+  active?: boolean;
+  upcoming?: boolean;
+};
+
+const hubs: Hub[] = [
+  { name: "Algiers", country: "HQ", x: 248, y: 60, primary: true },
+  // Active markets
+  { name: "Niamey", country: "Niger", x: 245, y: 245, active: true },
+  { name: "Abuja", country: "Nigeria", x: 270, y: 290, active: true },
+  // Upcoming
+  { name: "Ouagadougou", country: "Burkina Faso", x: 195, y: 250, upcoming: true },
+  { name: "Abidjan", country: "Côte d'Ivoire", x: 170, y: 305, upcoming: true },
+  { name: "N'Djamena", country: "Chad", x: 310, y: 235, upcoming: true },
 ];
 
 export function AfricaMap() {
@@ -28,20 +38,39 @@ export function AfricaMap() {
             04 — African Expansion
           </div>
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
-            Building Africa's<br />
-            next <span className="text-gradient-brand">trade corridor</span>.
+            From Algiers to the<br />
+            heart of <span className="text-gradient-brand">Africa</span>.
           </h2>
           <p className="mt-6 text-lg text-deep-foreground/70 leading-relaxed">
-            Africa is the heart of our expansion strategy. From West to East,
-            we are establishing distribution hubs to bring premium Algerian
-            food products closer to growing consumer markets.
+            Africa is our home market and our strategic priority. We are already
+            shipping to Niger and Nigeria, and rolling out to Burkina Faso,
+            Côte d'Ivoire and Chad — building a reliable Algerian supply line
+            for the continent.
           </p>
+
+          <div className="mt-10 grid grid-cols-2 gap-6">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf/80">Active markets</div>
+              <ul className="mt-3 space-y-1.5 text-deep-foreground/90 text-sm">
+                <li>Niger — Niamey</li>
+                <li>Nigeria — Abuja</li>
+              </ul>
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-brand/80">Upcoming expansion</div>
+              <ul className="mt-3 space-y-1.5 text-deep-foreground/70 text-sm">
+                <li>Burkina Faso — Ouagadougou</li>
+                <li>Côte d'Ivoire — Abidjan</li>
+                <li>Chad — N'Djamena</li>
+              </ul>
+            </div>
+          </div>
 
           <div className="mt-10 grid grid-cols-3 gap-6">
             {[
-              { k: "12", v: "African countries" },
-              { k: "8", v: "Logistics hubs" },
-              { k: "2025", v: "Pan-African roll-out" },
+              { k: "2", v: "Active markets" },
+              { k: "3+", v: "Upcoming countries" },
+              { k: "2025", v: "Activity started" },
             ].map((s) => (
               <div key={s.v}>
                 <div className="font-display text-3xl lg:text-4xl font-bold text-leaf">{s.k}</div>
@@ -88,33 +117,39 @@ export function AfricaMap() {
               <motion.line
                 key={h.name}
                 x1={248} y1={60} x2={h.x} y2={h.y}
-                stroke="oklch(0.78 0.19 135)"
+                stroke={h.active ? "oklch(0.78 0.19 135)" : "oklch(0.55 0.18 230)"}
                 strokeWidth="0.8"
                 strokeDasharray="3 3"
                 initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
+                whileInView={{ pathLength: 1, opacity: h.active ? 0.75 : 0.4 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, delay: 0.6 + i * 0.15 }}
               />
             ))}
 
             {/* Hub dots */}
-            {hubs.map((h, i) => (
+            {hubs.map((h, i) => {
+              const dotColor = h.primary
+                ? "oklch(0.78 0.19 135)"
+                : h.active
+                ? "oklch(0.78 0.19 135)"
+                : "oklch(0.55 0.18 230)";
+              return (
               <g key={h.name}>
                 <motion.circle
                   cx={h.x} cy={h.y}
-                  r={h.primary ? 8 : 5}
-                  fill={h.primary ? "oklch(0.78 0.19 135)" : "oklch(0.55 0.18 230)"}
+                  r={h.primary ? 8 : h.active ? 6 : 4.5}
+                  fill={dotColor}
                   filter="url(#glow)"
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 />
-                {h.primary && (
+                {(h.primary || h.active) && (
                   <motion.circle
                     cx={h.x} cy={h.y}
-                    r={8}
+                    r={h.primary ? 8 : 6}
                     fill="none"
                     stroke="oklch(0.78 0.19 135)"
                     strokeWidth="1.5"
@@ -125,17 +160,18 @@ export function AfricaMap() {
                 <motion.text
                   x={h.x + (h.primary ? 14 : 10)} y={h.y + 4}
                   fill="oklch(0.98 0.005 240)"
-                  fontSize={h.primary ? 13 : 10}
-                  fontWeight={h.primary ? 700 : 400}
+                  fontSize={h.primary ? 13 : h.active ? 11 : 10}
+                  fontWeight={h.primary || h.active ? 700 : 400}
                   initial={{ opacity: 0 }}
-                  whileInView={{ opacity: h.primary ? 1 : 0.7 }}
+                  whileInView={{ opacity: h.primary ? 1 : h.active ? 0.95 : 0.55 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
                 >
                   {h.name}
                 </motion.text>
               </g>
-            ))}
+              );
+            })}
           </svg>
         </motion.div>
       </div>
