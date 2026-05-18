@@ -230,7 +230,7 @@ function ProductCard({ p, i }: { p: Product; i: number }) {
       </div>
 
       {/* Bottom content */}
-      <div className="relative z-10 absolute bottom-0 inset-x-0 p-7 lg:p-8">
+      <div className="absolute bottom-0 inset-x-0 z-10 p-7 lg:p-8">
         <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">
           {p.tag}
         </div>
