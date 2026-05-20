@@ -48,7 +48,7 @@ export function Navbar() {
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-9">
           {links.map((l) => (
             <a
               key={l.href}
@@ -63,7 +63,7 @@ export function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-white text-deep px-5 py-2.5 text-sm font-medium hover:bg-leaf hover:text-deep transition-colors"
+          className="hidden lg:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white text-deep px-5 py-2.5 text-sm font-medium hover:bg-leaf hover:text-deep transition-colors"
         >
           Get a quote
           <span className="text-base leading-none">→</span>
@@ -72,7 +72,7 @@ export function Navbar() {
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden relative z-[60] inline-flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-xl text-deep-foreground"
+          className="lg:hidden relative z-[60] inline-flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-xl text-deep-foreground"
         >
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
@@ -96,7 +96,7 @@ export function Navbar() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-40 md:hidden bg-deep/95 backdrop-blur-2xl"
+          className="fixed inset-0 z-40 lg:hidden bg-deep/95 backdrop-blur-2xl"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.42_0.18_256/0.35),transparent_60%)]" />
           <nav className="relative h-full flex flex-col justify-center px-8 gap-2">
