@@ -1,4 +1,4 @@
-import logo from "@/assets/rizcore-logo.jpeg";
+import logo from "@/assets/rizcore-logo.png";
 
 export function Footer() {
   return (
@@ -6,10 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <div className="size-10 rounded-lg overflow-hidden bg-white">
-              <img src={logo} alt="RIZCORE" className="size-full object-cover" />
-            </div>
-            <span className="font-display font-bold text-deep-foreground text-lg">RIZCORE</span>
+            <img src={logo} alt="RIZCORE" className="h-10 w-auto object-contain" />
           </div>
           <p className="mt-5 text-sm max-w-sm leading-relaxed">
             Algerian export company based in Algiers. Bringing premium Algerian

@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { Ship, Package, ShieldCheck, Globe2, Factory, FileCheck2 } from "lucide-react";
 
 const services = [
-  { icon: Ship, title: "Global shipping", desc: "End-to-end maritime, air and overland freight with optimized routing." },
-  { icon: Package, title: "Sourcing & supply", desc: "Direct relationships with the best Algerian producers and cooperatives." },
+  { icon: Ship, title: "Africa shipping", desc: "Maritime and overland freight optimized for West and Central African routes." },
+  { icon: Package, title: "Algerian sourcing", desc: "Direct relationships with trusted Algerian producers and cooperatives." },
   { icon: ShieldCheck, title: "Quality control", desc: "On-site inspection, lab analysis and HACCP-compliant processes." },
-  { icon: Globe2, title: "Market access", desc: "Distribution networks across Africa, Europe, Middle East and the Americas." },
-  { icon: Factory, title: "Private label", desc: "Turnkey OEM solutions: formulation, packaging, branding and shipment." },
+  { icon: Globe2, title: "African market access", desc: "Distribution partners across our active and upcoming African markets." },
+  { icon: Factory, title: "Private label", desc: "Turnkey programs: formulation, packaging, branding and shipment." },
   { icon: FileCheck2, title: "Documentation", desc: "Customs, certifications, halal, organic — handled entirely by our team." },
 ];
 

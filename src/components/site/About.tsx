@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import tradeImg from "@/assets/about-trade.jpg";
+import tradeImg from "@/assets/trade-africa-market.jpg";
 
 export function About() {
   return (
@@ -50,16 +50,28 @@ export function About() {
           <div className="relative rounded-3xl overflow-hidden bg-deep shadow-card aspect-[4/5]">
             <img
               src={tradeImg}
-              alt="Global trade network"
+              alt="African trade and distribution"
               loading="lazy"
               width={1600}
               height={1200}
               className="size-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/30 to-transparent" />
+            <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-deep-foreground/90">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.3em]">
+                <span className="size-1.5 rounded-full bg-leaf animate-pulse" />
+                Africa-focused
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-deep-foreground/60">Est. 2025</span>
+            </div>
             <div className="absolute bottom-8 left-8 right-8 text-deep-foreground">
-              <div className="text-xs uppercase tracking-[0.3em] text-leaf">Headquarters</div>
-              <div className="mt-3 font-display text-2xl font-bold">Algiers · Algeria</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-leaf">Trade corridor</div>
+              <div className="mt-3 font-display text-2xl font-bold leading-tight">
+                Algiers → West &amp; Central Africa
+              </div>
+              <div className="mt-3 text-xs uppercase tracking-[0.25em] text-deep-foreground/60">
+                Niger · Nigeria · Burkina Faso · Côte d'Ivoire · Chad
+              </div>
             </div>
           </div>
         </motion.div>

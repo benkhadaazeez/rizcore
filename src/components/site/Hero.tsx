@@ -163,18 +163,19 @@ export function Hero() {
             className="flex flex-wrap gap-3"
           >
             <a
-              href="#products"
+              href="#about"
               className="group relative inline-flex items-center gap-3 rounded-full bg-white text-deep px-7 py-4 font-medium overflow-hidden shadow-glow transition-transform hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-leaf to-leaf/60 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-              <span className="relative">Discover our products</span>
+              <span className="relative">Our Company</span>
               <ArrowRight className="relative size-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 text-deep-foreground px-7 py-4 font-medium hover:bg-white/[0.06] hover:border-white/40 transition-all"
+              href="#services"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/25 text-deep-foreground px-7 py-4 font-medium hover:bg-white/[0.06] hover:border-leaf/60 transition-all"
             >
-              Become a partner
+              Explore Services
+              <ArrowRight className="size-4 opacity-70 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
         </div>
