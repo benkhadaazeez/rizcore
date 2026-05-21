@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Contact() {
+  const { t } = useTranslation();
   return (
     <section id="contact" className="relative bg-deep py-32 lg:py-40 overflow-hidden grain">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(0.42_0.18_256_/_0.35),transparent_60%)]" />
@@ -13,22 +15,21 @@ export function Contact() {
           transition={{ duration: 0.8 }}
         >
           <div className="text-xs uppercase tracking-[0.3em] text-leaf font-medium">
-            05 — Contact
+            {t("contact.eyebrow")}
           </div>
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
-            Let's build the next<br />
-            <span className="text-gradient-brand">trade route</span> together.
+            {t("contact.title1")}<br />
+            <span className="text-gradient-brand">{t("contact.titleAccent")}</span> {t("contact.title2")}
           </h2>
           <p className="mt-6 text-lg text-deep-foreground/70 max-w-lg">
-            Whether you're a distributor, retailer or food industry, our export
-            team is ready to design a tailored partnership.
+            {t("contact.body")}
           </p>
 
           <div className="mt-12 space-y-6">
             {[
-              { Icon: MapPin, k: "Headquarters", v: "Algiers, Algeria" },
-              { Icon: Mail, k: "Export desk", v: "contact.rizcore@gmail.com" },
-              { Icon: Phone, k: "Phone · WhatsApp", v: "+213 551 52 76 81" },
+              { Icon: MapPin, k: t("contact.hq"), v: "Algiers, Algeria" },
+              { Icon: Mail, k: t("contact.desk"), v: "contact.rizcore@gmail.com" },
+              { Icon: Phone, k: t("contact.phone"), v: "+213 551 52 76 81" },
             ].map(({ Icon, k, v }) => (
               <div key={k} className="flex items-start gap-4">
                 <div className="size-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-leaf shrink-0">
@@ -36,7 +37,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-xs uppercase tracking-[0.25em] text-deep-foreground/50">{k}</div>
-                  <div className="mt-1 text-deep-foreground font-medium">{v}</div>
+                  <div className="mt-1 text-deep-foreground font-medium" dir="ltr">{v}</div>
                 </div>
               </div>
             ))}
@@ -53,10 +54,10 @@ export function Contact() {
         >
           <div className="grid gap-5">
             {[
-              { id: "name", label: "Full name", type: "text" },
-              { id: "company", label: "Company", type: "text" },
-              { id: "email", label: "Work email", type: "email" },
-              { id: "country", label: "Country", type: "text" },
+              { id: "name", label: t("contact.fName"), type: "text" },
+              { id: "company", label: t("contact.fCompany"), type: "text" },
+              { id: "email", label: t("contact.fEmail"), type: "email" },
+              { id: "country", label: t("contact.fCountry"), type: "text" },
             ].map((f) => (
               <div key={f.id}>
                 <label htmlFor={f.id} className="text-xs uppercase tracking-[0.25em] text-deep-foreground/60">
@@ -71,7 +72,7 @@ export function Contact() {
             ))}
             <div>
               <label htmlFor="msg" className="text-xs uppercase tracking-[0.25em] text-deep-foreground/60">
-                How can we help?
+                {t("contact.fMsg")}
               </label>
               <textarea
                 id="msg"
@@ -84,7 +85,7 @@ export function Contact() {
               type="submit"
               className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-white text-deep px-7 py-4 font-medium hover:bg-leaf transition-all"
             >
-              Send inquiry
+              {t("contact.send")}
               <span>→</span>
             </button>
           </div>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX } from "./africa-data";
+import algiersImg from "@/assets/algiers-memorial.jpg";
 
 type Hub = {
   name: keyof typeof AFRICA_CITIES;
@@ -11,7 +13,7 @@ type Hub = {
 };
 
 const hubs: Hub[] = [
-  { name: "Algiers", country: "HQ · Algeria", status: "hq", labelDx: 12, labelDy: -8 },
+  { name: "Algiers", country: "HQ · Algeria", status: "hq", labelDx: 14, labelDy: -6 },
   { name: "Niamey", country: "Niger", status: "active", labelDx: -10, labelDy: -10, anchor: "end" },
   { name: "Abuja", country: "Nigeria", status: "active", labelDx: 12, labelDy: 5 },
   { name: "Ouagadougou", country: "Burkina Faso", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
@@ -19,7 +21,6 @@ const hubs: Hub[] = [
   { name: "N'Djamena", country: "Chad", status: "upcoming", labelDx: 12, labelDy: -8 },
 ];
 
-// Highlight countries on the map
 const ACTIVE_ISO = new Set(["NER", "NGA"]);
 const UPCOMING_ISO = new Set(["BFA", "CIV", "TCD"]);
 const HQ_ISO = "DZA";
@@ -27,9 +28,40 @@ const HQ_ISO = "DZA";
 const algiers = AFRICA_CITIES["Algiers"];
 
 export function AfricaMap() {
+  const { t } = useTranslation();
   return (
     <section id="africa" className="relative bg-deep py-28 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.42_0.18_256_/_0.18),transparent_70%)]" />
+
+      {/* Cinematic Algiers strip */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative rounded-3xl overflow-hidden border border-white/10 shadow-card mb-20 aspect-[21/9] sm:aspect-[21/8]"
+        >
+          <img
+            src={algiersImg}
+            alt="Maqam Echahid · Algiers"
+            loading="lazy"
+            width={1920}
+            height={820}
+            className="absolute inset-0 size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-transparent to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 p-8 lg:p-12 text-deep-foreground">
+            <div className="text-[10px] uppercase tracking-[0.35em] text-leaf">
+              {t("africa.eyebrow")}
+            </div>
+            <div className="mt-3 font-display text-2xl sm:text-3xl lg:text-4xl font-bold max-w-2xl leading-tight">
+              {t("africa.gatewayCaption")}
+            </div>
+          </div>
+        </motion.div>
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
         <motion.div
@@ -38,49 +70,29 @@ export function AfricaMap() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-xs uppercase tracking-[0.3em] text-leaf font-medium">
-            04 — African Expansion
-          </div>
-          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
-            From Algiers to the<br />
-            heart of <span className="text-gradient-brand">Africa</span>.
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
+            {t("africa.title1")} <span className="text-gradient-brand">{t("africa.titleAccent")}</span>
           </h2>
           <p className="mt-6 text-lg text-deep-foreground/70 leading-relaxed">
-            Africa is our home market and our strategic priority. We are already
-            shipping to Niger and Nigeria, and rolling out to Burkina Faso,
-            Côte d'Ivoire and Chad — building a reliable Algerian supply line
-            for the continent.
+            {t("africa.body")}
           </p>
 
-          <div className="mt-10 grid grid-cols-2 gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf/80">Active markets</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf/80">{t("africa.activeLabel")}</div>
               <ul className="mt-3 space-y-1.5 text-deep-foreground/90 text-sm">
                 <li>Niger — Niamey</li>
                 <li>Nigeria — Abuja</li>
               </ul>
             </div>
             <div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-brand/80">Upcoming expansion</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-brand/80">{t("africa.upcomingLabel")}</div>
               <ul className="mt-3 space-y-1.5 text-deep-foreground/70 text-sm">
                 <li>Burkina Faso — Ouagadougou</li>
                 <li>Côte d'Ivoire — Abidjan</li>
                 <li>Chad — N'Djamena</li>
               </ul>
             </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-3 gap-6">
-            {[
-              { k: "2", v: "Active markets" },
-              { k: "3+", v: "Upcoming countries" },
-              { k: "2025", v: "Activity started" },
-            ].map((s) => (
-              <div key={s.v}>
-                <div className="font-display text-3xl lg:text-4xl font-bold text-leaf">{s.k}</div>
-                <div className="mt-1 text-xs uppercase tracking-[0.2em] text-deep-foreground/60">{s.v}</div>
-              </div>
-            ))}
           </div>
         </motion.div>
 
@@ -123,7 +135,6 @@ export function AfricaMap() {
                 </filter>
               </defs>
 
-              {/* Country shapes */}
               <g>
                 {AFRICA_COUNTRIES.map((c, i) => {
                   const isHq = c.iso === HQ_ISO;
@@ -161,11 +172,9 @@ export function AfricaMap() {
                 })}
               </g>
 
-              {/* Trade routes from Algiers */}
               {hubs.filter((h) => h.name !== "Algiers").map((h, i) => {
                 const city = AFRICA_CITIES[h.name];
                 const isActive = h.status === "active";
-                // Curved path using quadratic bezier toward Algiers
                 const mx = (algiers.x + city.x) / 2 + (city.x - algiers.x) * 0.05;
                 const my = (algiers.y + city.y) / 2 - 20;
                 const d = `M${algiers.x},${algiers.y} Q${mx},${my} ${city.x},${city.y}`;
@@ -184,11 +193,7 @@ export function AfricaMap() {
                       transition={{ duration: 1.4, delay: 0.7 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
                     />
                     {isActive && (
-                      <motion.circle
-                        r={2.2}
-                        fill="oklch(0.95 0.18 135)"
-                        filter="url(#afrGlow)"
-                      >
+                      <motion.circle r={2.2} fill="oklch(0.95 0.18 135)" filter="url(#afrGlow)">
                         <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
                       </motion.circle>
                     )}
@@ -196,7 +201,6 @@ export function AfricaMap() {
                 );
               })}
 
-              {/* Hub dots + labels */}
               {hubs.map((h, i) => {
                 const c = AFRICA_CITIES[h.name];
                 const isHq = h.status === "hq";
@@ -207,6 +211,9 @@ export function AfricaMap() {
                   ? "oklch(0.82 0.20 135)"
                   : "oklch(0.70 0.16 256)";
                 const r = isHq ? 5 : isActive ? 4.2 : 3.4;
+                // Force Algiers label outward to avoid clipping on small screens
+                const dx = h.name === "Algiers" ? 10 : (h.labelDx ?? 10);
+                const dy = h.name === "Algiers" ? -10 : (h.labelDy ?? 4);
                 return (
                   <g key={h.name}>
                     {(isHq || isActive) && (
@@ -232,7 +239,6 @@ export function AfricaMap() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
                     />
-                    {/* Label background pill for legibility */}
                     <motion.g
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -240,8 +246,8 @@ export function AfricaMap() {
                       transition={{ duration: 0.6, delay: 1 + i * 0.08 }}
                     >
                       <text
-                        x={c.x + (h.labelDx ?? 10)}
-                        y={c.y + (h.labelDy ?? 4)}
+                        x={c.x + dx}
+                        y={c.y + dy}
                         fill="oklch(0.98 0.005 240)"
                         fontSize={isHq ? 11 : isActive ? 10 : 9}
                         fontWeight={isHq || isActive ? 700 : 500}
@@ -251,8 +257,8 @@ export function AfricaMap() {
                         {h.name}
                       </text>
                       <text
-                        x={c.x + (h.labelDx ?? 10)}
-                        y={c.y + (h.labelDy ?? 4) + 9}
+                        x={c.x + dx}
+                        y={c.y + dy + 9}
                         fill={color}
                         fontSize={7}
                         fontWeight={600}
@@ -268,11 +274,10 @@ export function AfricaMap() {
               })}
             </svg>
 
-            {/* Legend */}
             <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-deep-foreground/70">
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-white" /> HQ</span>
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-leaf" /> Active</span>
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-brand" /> Upcoming</span>
+              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-white" /> {t("africa.legendHQ")}</span>
+              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-leaf" /> {t("africa.legendActive")}</span>
+              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-brand" /> {t("africa.legendUpcoming")}</span>
             </div>
           </div>
         </motion.div>

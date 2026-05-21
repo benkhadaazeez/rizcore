@@ -1,81 +1,36 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Leaf } from "lucide-react";
-import dates from "@/assets/product-dates.jpg";
-import foodAlgeria from "@/assets/trade-food-algeria.jpg";
-import containers from "@/assets/trade-containers.jpg";
-import warehouse from "@/assets/trade-warehouse.jpg";
-import cargoShip from "@/assets/trade-cargo-ship.jpg";
-import africaMarket from "@/assets/trade-africa-market.jpg";
+import { useTranslation } from "react-i18next";
+import dates from "@/assets/product-dates-custom.jpg";
+import food from "@/assets/sector-food.jpg";
+import construction from "@/assets/sector-construction.jpg";
+import cosmetics from "@/assets/sector-cosmetics.jpg";
+import household from "@/assets/sector-household.jpg";
+import industrial from "@/assets/sector-industrial.jpg";
+
+type SectorKey = "dates" | "food" | "construction" | "cosmetics" | "household" | "industrial";
 
 type Sector = {
+  key: SectorKey;
   img: string;
-  name: string;
-  tag: string;
-  blurb: string;
   status: "core" | "on-request";
   index: string;
   featured?: boolean;
 };
 
 const sectors: Sector[] = [
-  {
-    img: dates,
-    name: "Algerian Dates",
-    tag: "Core expertise",
-    blurb: "Premium Algerian dates, sourced from the finest palm groves of the south.",
-    status: "core",
-    index: "01",
-    featured: true,
-  },
-  {
-    img: foodAlgeria,
-    name: "Made in Algeria Food",
-    tag: "Core expertise",
-    blurb: "A curated selection of authentic Algerian food products for African markets.",
-    status: "core",
-    index: "02",
-  },
-  {
-    img: containers,
-    name: "Construction",
-    tag: "On request",
-    blurb: "Materials and finishings for African construction projects.",
-    status: "on-request",
-    index: "03",
-  },
-  {
-    img: africaMarket,
-    name: "Cosmetics",
-    tag: "On request",
-    blurb: "Skincare and personal care lines tailored to African consumers.",
-    status: "on-request",
-    index: "04",
-  },
-  {
-    img: warehouse,
-    name: "Household Products",
-    tag: "On request",
-    blurb: "Everyday home essentials for distributors and wholesalers.",
-    status: "on-request",
-    index: "05",
-  },
-  {
-    img: cargoShip,
-    name: "Industrial Supplies",
-    tag: "On request",
-    blurb: "B2B sourcing across the Algerian supplier network.",
-    status: "on-request",
-    index: "06",
-  },
+  { key: "dates", img: dates, status: "core", index: "01", featured: true },
+  { key: "food", img: food, status: "core", index: "02" },
+  { key: "construction", img: construction, status: "on-request", index: "03" },
+  { key: "cosmetics", img: cosmetics, status: "on-request", index: "04" },
+  { key: "household", img: household, status: "on-request", index: "05" },
+  { key: "industrial", img: industrial, status: "on-request", index: "06" },
 ];
 
 export function Products() {
+  const { t } = useTranslation();
   return (
-    <section
-      id="products"
-      className="relative bg-background py-32 lg:py-40 overflow-hidden"
-    >
-      {/* Ambient decorations */}
+    <section id="products" className="relative bg-background py-32 lg:py-40 overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(var(--deep)_1px,transparent_1px),linear-gradient(90deg,var(--deep)_1px,transparent_1px)] [background-size:120px_120px]"
@@ -85,7 +40,6 @@ export function Products() {
       <div className="pointer-events-none absolute bottom-0 -left-40 size-[520px] rounded-full bg-brand/10 blur-[160px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Header */}
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
             <motion.div
@@ -96,7 +50,7 @@ export function Products() {
               className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-brand font-medium"
             >
               <span className="h-px w-10 bg-brand" />
-              03 — Portfolio
+              {t("products.eyebrow")}
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -105,9 +59,8 @@ export function Products() {
               transition={{ duration: 0.8, delay: 0.05 }}
               className="mt-6 font-display text-4xl sm:text-5xl lg:text-[4.25rem] font-bold text-deep leading-[1.02] tracking-tight"
             >
-              Algerian dates,{" "}
-              <span className="italic font-light text-brand">Made in Algeria</span>{" "}
-              — and beyond on request.
+              {t("products.title1")}{" "}
+              <span className="italic font-light text-brand">{t("products.titleAccent")}</span>
             </motion.h2>
           </div>
           <motion.div
@@ -118,20 +71,16 @@ export function Products() {
             className="lg:col-span-5"
           >
             <p className="text-muted-foreground text-base leading-relaxed">
-              Our core expertise is premium Algerian dates and Made in Algeria
-              food products. Beyond food, we source construction, cosmetics,
-              household and industrial supplies on request.
+              {t("products.body")}
             </p>
           </motion.div>
         </div>
 
-        {/* Grid */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 auto-rows-[minmax(380px,_auto)]">
           {sectors.map((p, i) => (
-            <SectorCard key={p.name} p={p} i={i} />
+            <SectorCard key={p.key} p={p} i={i} />
           ))}
 
-          {/* CTA tile */}
           <motion.a
             href="#contact"
             initial={{ opacity: 0, y: 40 }}
@@ -146,17 +95,16 @@ export function Products() {
               style={{ maskImage: "radial-gradient(ellipse at top right, black, transparent 70%)" }}
             />
             <div className="relative">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">Next step</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">{t("products.ctaLink")}</div>
               <h3 className="mt-4 font-display text-3xl lg:text-4xl font-bold leading-tight">
-                Need a specific sector for your market?
+                {t("products.ctaTitle")}
               </h3>
               <p className="mt-4 text-deep-foreground/70 max-w-sm">
-                Our Algerian sourcing network goes well beyond this list.
-                Tell us what you need — we'll build the offer.
+                {t("products.ctaBody")}
               </p>
             </div>
             <div className="relative inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-deep-foreground group-hover:text-leaf transition-colors">
-              Talk to our team
+              {t("products.ctaLink")}
               <span className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 group-hover:bg-leaf group-hover:border-leaf group-hover:text-deep transition-all">
                 <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform" />
               </span>
@@ -169,23 +117,28 @@ export function Products() {
 }
 
 function SectorCard({ p, i }: { p: Sector; i: number }) {
+  const { t } = useTranslation();
+  const name = t(`products.sectors.${p.key}.name`);
+  const blurb = t(`products.sectors.${p.key}.blurb`);
+  const tag = p.status === "core" ? t("products.coreTag") : t("products.onRequestTag");
   return (
-    <motion.article
+    <motion.a
+      href="#contact"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded-[28px] bg-deep text-deep-foreground shadow-card isolate ${
+      className={`group relative overflow-hidden rounded-[28px] bg-deep text-deep-foreground shadow-card isolate min-h-[380px] block ${
         p.featured ? "md:col-span-2 lg:col-span-2" : ""
       }`}
     >
       <div className="absolute inset-0">
         <img
           src={p.img}
-          alt={p.name}
+          alt={name}
           loading="lazy"
-          width={1024}
-          height={1280}
+          width={1200}
+          height={1400}
           className="size-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/70 to-deep/10" />
@@ -198,32 +151,28 @@ function SectorCard({ p, i }: { p: Sector; i: number }) {
       />
 
       <div className="relative z-10 flex items-start justify-between p-7 lg:p-8">
-        <span className="font-display text-xs tracking-[0.3em] text-deep-foreground/50">
-          {p.index}
-        </span>
+        <span className="font-display text-xs tracking-[0.3em] text-deep-foreground/50">{p.index}</span>
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-leaf">
           <Leaf className="size-3" />
-          {p.status === "core" ? "Core" : "On request"}
+          {tag}
         </span>
       </div>
 
       <div className="absolute bottom-0 inset-x-0 z-10 p-7 lg:p-8">
-        <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">
-          {p.tag}
-        </div>
+        <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">{tag}</div>
         <h3 className="mt-3 font-display text-2xl lg:text-3xl font-bold leading-tight">
-          {p.name}
+          {name}
         </h3>
         <p className="mt-3 text-sm text-deep-foreground/70 max-w-md leading-relaxed">
-          {p.blurb}
+          {blurb}
         </p>
         <div className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-deep-foreground/70 group-hover:text-leaf transition-colors">
-          Learn more
+          {t("products.learnMore")}
           <span className="inline-flex size-9 items-center justify-center rounded-full border border-white/15 group-hover:bg-leaf group-hover:border-leaf group-hover:text-deep transition-all">
             <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform duration-500" />
           </span>
         </div>
       </div>
-    </motion.article>
+    </motion.a>
   );
 }

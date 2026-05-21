@@ -6,11 +6,11 @@ import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Products } from "@/components/site/Products";
 import { AfricaMap } from "@/components/site/AfricaMap";
-import { Stats } from "@/components/site/Stats";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import "@/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,10 +29,9 @@ function Index() {
       <Navbar />
       <Hero />
       <About />
+      <AfricaMap />
       <Services />
       <Products />
-      <AfricaMap />
-      <Stats />
       <Contact />
       <Footer />
     </motion.main>
