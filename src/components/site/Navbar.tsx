@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/rizcore-logo.png";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-const links = [
-  { href: "#top", label: "Home" },
-  { href: "#about", label: "About Us" },
-  { href: "#services", label: "Services" },
-  { href: "#africa", label: "Markets" },
-  { href: "#products", label: "Products" },
-  { href: "#contact", label: "Contact" },
+const linkKeys = [
+  { href: "#top", key: "nav.home" },
+  { href: "#about", key: "nav.about" },
+  { href: "#africa", key: "nav.markets" },
+  { href: "#services", key: "nav.services" },
+  { href: "#products", key: "nav.products" },
+  { href: "#contact", key: "nav.contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -48,32 +51,37 @@ export function Navbar() {
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-9">
-          {links.map((l) => (
+        <nav className="hidden lg:flex items-center gap-8">
+          {linkKeys.map((l) => (
             <a
               key={l.href}
               href={l.href}
               className="text-sm text-deep-foreground/70 hover:text-deep-foreground transition-colors relative group"
             >
-              {l.label}
+              {t(l.key)}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-leaf transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="hidden lg:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white text-deep px-5 py-2.5 text-sm font-medium hover:bg-leaf hover:text-deep transition-colors"
-        >
-          Get a quote
-          <span className="text-base leading-none">→</span>
-        </a>
+        <div className="hidden lg:flex items-center gap-3">
+          <LanguageSwitcher />
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white text-deep px-5 py-2.5 text-sm font-medium hover:bg-leaf hover:text-deep transition-colors"
+          >
+            {t("nav.cta")}
+            <span className="text-base leading-none">→</span>
+          </a>
+        </div>
 
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden relative z-[60] inline-flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-xl text-deep-foreground"
-        >
+        <div className="flex lg:hidden items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+            className="relative z-[60] inline-flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-xl text-deep-foreground"
+          >
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
               <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -85,7 +93,8 @@ export function Navbar() {
               </motion.span>
             )}
           </AnimatePresence>
-        </button>
+          </button>
+        </div>
       </div>
     </motion.header>
 
@@ -100,7 +109,7 @@ export function Navbar() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.42_0.18_256/0.35),transparent_60%)]" />
           <nav className="relative h-full flex flex-col justify-center px-8 gap-2">
-            {links.map((l, i) => (
+            {linkKeys.map((l, i) => (
               <motion.a
                 key={l.href}
                 href={l.href}
@@ -112,7 +121,7 @@ export function Navbar() {
               >
                 <span className="text-xs font-mono text-leaf/70">0{i + 1}</span>
                 <span className="font-display text-3xl sm:text-4xl font-bold text-deep-foreground group-hover:text-leaf transition-colors">
-                  {l.label}
+                  {t(l.key)}
                 </span>
               </motion.a>
             ))}
