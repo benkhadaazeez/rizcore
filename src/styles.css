@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant rtl (&:where([dir="rtl"], [dir="rtl"] *));
 
 @theme inline {
   --font-display: "Manrope", system-ui, sans-serif;

@@ -110,7 +110,6 @@ export function AfricaMap() {
               className="relative w-full h-auto"
               style={{ overflow: "visible" }}
               role="img"
-              dir="ltr"
               aria-label="Africa export markets map"
             >
               <defs>
