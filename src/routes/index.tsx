@@ -29,9 +29,9 @@ function Index() {
       <Navbar />
       <Hero />
       <About />
-      <AfricaMap />
       <Services />
       <Products />
+      <AfricaMap />
       <Contact />
       <Footer />
     </motion.main>
