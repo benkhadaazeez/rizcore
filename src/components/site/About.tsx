@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import tradeImg from "@/assets/trade-africa-market.jpg";
+import algiersImg from "@/assets/algiers-white-city.jpg";
 
 export function About() {
   const { t } = useTranslation();
@@ -47,8 +47,8 @@ export function About() {
           <div className="absolute -inset-6 bg-brand-gradient rounded-3xl blur-2xl opacity-20" />
           <div className="relative rounded-3xl overflow-hidden bg-deep shadow-card aspect-[4/5]">
             <img
-              src={tradeImg}
-              alt="African trade and distribution"
+              src={algiersImg}
+              alt="Algiers — Alger la Blanche, white Mediterranean architecture"
               loading="lazy"
               width={1600}
               height={1200}

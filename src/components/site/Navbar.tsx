@@ -8,9 +8,9 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 const linkKeys = [
   { href: "#top", key: "nav.home" },
   { href: "#about", key: "nav.about" },
-  { href: "#africa", key: "nav.markets" },
   { href: "#services", key: "nav.services" },
   { href: "#products", key: "nav.products" },
+  { href: "#africa", key: "nav.markets" },
   { href: "#contact", key: "nav.contact" },
 ];
 
