@@ -28,14 +28,14 @@ export const en = {
     body:
       "Founded in 2025 in Algiers, Rizcore is an Algerian export and distribution company specializing in sourcing, exporting and supplying carefully selected Algerian products to West and Central African markets. Through a reliable, traceable and efficient supply chain, we connect Algerian producers with growing regional demand across multiple industries.",
     pillar1Title: "Africa-focused",
-    pillar1Body: "Active in Niger and Nigeria. Expanding to Burkina Faso, Côte d'Ivoire and Chad.",
+    pillar1Body: "Building export bridges between Algerian producers and African markets.",
     pillar2Title: "Direct sourcing",
     pillar2Body: "We select and purchase directly from Algerian producers — no intermediaries, premium grade only.",
     badgeStatus: "Africa-focused",
     badgeEst: "Est. 2025",
-    corridorEyebrow: "Trade corridor",
-    corridorTitle: "Algiers → West & Central Africa",
-    corridorCountries: "Niger · Nigeria · Burkina Faso · Côte d'Ivoire · Chad",
+    headquartersEyebrow: "Headquarters",
+    headquartersTitle: "RIZCORE",
+    headquartersLocation: "Algiers · Algeria",
   },
   services: {
     eyebrow: "02 — Services",
