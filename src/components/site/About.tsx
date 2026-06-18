@@ -63,14 +63,15 @@ export function About() {
               <span className="text-[10px] uppercase tracking-[0.3em] text-deep-foreground/60">{t("about.badgeEst")}</span>
             </div>
             <div className="absolute bottom-8 inset-x-8 text-deep-foreground">
-              <div className="text-xs uppercase tracking-[0.3em] text-leaf">{t("about.corridorEyebrow")}</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-leaf">{t("about.headquartersEyebrow")}</div>
               <div className="mt-3 font-display text-2xl font-bold leading-tight">
-                {t("about.corridorTitle")}
+                {t("about.headquartersTitle")}
               </div>
               <div className="mt-3 text-xs uppercase tracking-[0.25em] text-deep-foreground/60">
-                {t("about.corridorCountries")}
+                {t("about.headquartersLocation")}
               </div>
             </div>
+
           </div>
         </motion.div>
       </div>
