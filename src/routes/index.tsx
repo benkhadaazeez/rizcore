@@ -15,25 +15,7 @@ import "@/i18n";
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
 function Index() {
-  return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-background text-foreground"
-    >
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Products />
-      <AfricaMap />
-      <Contact />
-      <Footer />
-    </motion.main>
-  );
+  return <h1>RIZCORE TEST 🚀</h1>;
 }
+
