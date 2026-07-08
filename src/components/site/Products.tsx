@@ -2,29 +2,24 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Leaf } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import dates from "@/assets/product-dates-custom.jpg";
+import fruits from "@/assets/sector-fruits.jpg";
 import food from "@/assets/sector-food.jpg";
-import construction from "@/assets/sector-construction.jpg";
-import cosmetics from "@/assets/sector-cosmetics.jpg";
-import household from "@/assets/sector-household.jpg";
 import industrial from "@/assets/sector-industrial.jpg";
 
-type SectorKey = "dates" | "food" | "construction" | "cosmetics" | "household" | "industrial";
+type SectorKey = "dates" | "fruits" | "agrifood" | "industrial";
 
 type Sector = {
   key: SectorKey;
   img: string;
-  status: "core" | "on-request";
   index: string;
   featured?: boolean;
 };
 
 const sectors: Sector[] = [
-  { key: "dates", img: dates, status: "core", index: "01", featured: true },
-  { key: "food", img: food, status: "core", index: "02" },
-  { key: "construction", img: construction, status: "on-request", index: "03" },
-  { key: "cosmetics", img: cosmetics, status: "on-request", index: "04" },
-  { key: "household", img: household, status: "on-request", index: "05" },
-  { key: "industrial", img: industrial, status: "on-request", index: "06" },
+  { key: "dates", img: dates, index: "01", featured: true },
+  { key: "fruits", img: fruits, index: "02" },
+  { key: "agrifood", img: food, index: "03" },
+  { key: "industrial", img: industrial, index: "04" },
 ];
 
 export function Products() {
@@ -120,7 +115,7 @@ function SectorCard({ p, i }: { p: Sector; i: number }) {
   const { t } = useTranslation();
   const name = t(`products.sectors.${p.key}.name`);
   const blurb = t(`products.sectors.${p.key}.blurb`);
-  const tag = p.status === "core" ? t("products.coreTag") : t("products.onRequestTag");
+  const tag = t(`products.sectors.${p.key}.tag`);
   return (
     <motion.a
       href="#contact"

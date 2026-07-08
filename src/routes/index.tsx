@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { WhyAlgeria } from "@/components/site/WhyAlgeria";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Products } from "@/components/site/Products";
+import { WhyRizcore } from "@/components/site/WhyRizcore";
 import { AfricaMap } from "@/components/site/AfricaMap";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
@@ -28,9 +30,11 @@ function Index() {
       <ScrollProgress />
       <Navbar />
       <Hero />
+      <WhyAlgeria />
       <About />
       <Services />
       <Products />
+      <WhyRizcore />
       <AfricaMap />
       <Contact />
       <Footer />

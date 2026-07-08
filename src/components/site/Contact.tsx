@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Clock } from "lucide-react";
 
 export function Contact() {
   const { t } = useTranslation();
@@ -30,6 +30,7 @@ export function Contact() {
               { Icon: MapPin, k: t("contact.hq"), v: "Algiers, Algeria" },
               { Icon: Mail, k: t("contact.desk"), v: "contact.rizcore@gmail.com" },
               { Icon: Phone, k: t("contact.phone"), v: "+213 551 52 76 81" },
+              { Icon: Clock, k: t("contact.hours"), v: t("contact.hoursValue") },
             ].map(({ Icon, k, v }) => (
               <div key={k} className="flex items-start gap-4">
                 <div className="size-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-leaf shrink-0">

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Ship, Package, ShieldCheck, Globe2, Factory, FileCheck2 } from "lucide-react";
+import { Ship, ShieldCheck, Globe2, Factory, FileCheck2, Settings2 } from "lucide-react";
 
-const icons = [Package, ShieldCheck, Ship, Globe2, Factory, FileCheck2];
+const icons = [Factory, ShieldCheck, Ship, Globe2, FileCheck2, Settings2];
 
 export function Services() {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ export function Services() {
 
         <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
           {items.map((s, i) => {
-            const Icon = icons[i] ?? Package;
+            const Icon = icons[i] ?? Factory;
             return (
               <motion.div
                 key={s.title}
