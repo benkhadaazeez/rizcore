@@ -28,9 +28,9 @@ export const fr = {
   },
   whyAlgeria: {
     eyebrow: "Pourquoi l'Algérie",
-    title: "Pourquoi l'Algérie ?",
+    title: "Pourquoi choisir l'Algérie",
     body:
-      "L'Algérie conjugue un accès méditerranéen stratégique, une production manufacturière compétitive, une agriculture de haute qualité et des capacités industrielles croissantes, ce qui en fait un hub de sourcing fiable pour les marchés africains.",
+      "L'Algérie conjugue un accès méditerranéen stratégique, une production manufacturière compétitive, une agriculture de haute qualité et des capacités industrielles croissantes, ce qui en fait un hub de sourcing fiable pour le continent.",
     cards: [
       { title: "Position stratégique", desc: "Porte d'entrée entre l'Europe, l'Afrique du Nord et l'Afrique subsaharienne." },
       { title: "Produits agricoles premium", desc: "Terre de dattes réputées, d'huile d'olive et de produits agro-alimentaires de qualité." },
@@ -39,16 +39,16 @@ export const fr = {
     ],
   },
   about: {
-    eyebrow: "01 — À Propos de RIZCORE",
+    eyebrow: "01 · À Propos de RIZCORE",
     title1: "Une société d'export algérienne",
     title2: "pensée pour les",
     titleAccent: "marchés africains",
     body:
-      "Fondée à Alger en 2025, Rizcore est une société algérienne d'export et de sourcing qui relie les fabricants aux distributeurs, grossistes et acheteurs industriels d'Afrique de l'Ouest et Centrale. Grâce à un sourcing fiable, une expertise export et des solutions d'approvisionnement sur mesure, nous simplifions le commerce international entre l'Algérie et les marchés africains.",
+      "Fondée à Alger en 2025, Rizcore est une société d'export et de sourcing qui relie des fabricants de confiance aux distributeurs, grossistes et acheteurs industriels d'Afrique de l'Ouest et Centrale. Grâce à un sourcing fiable, une expertise export et des solutions d'approvisionnement sur mesure, nous simplifions le commerce transfrontalier vers des marchés en pleine croissance.",
     pillar1Title: "Focus Afrique",
     pillar1Body: "Bâtir des ponts export entre producteurs algériens et marchés africains.",
     pillar2Title: "Sourcing direct",
-    pillar2Body: "Achat direct auprès des producteurs algériens — sans intermédiaire, qualité premium uniquement.",
+    pillar2Body: "Achat direct auprès des producteurs locaux, sans intermédiaire et en qualité premium uniquement.",
     badgeStatus: "Focus Afrique",
     badgeEst: "Depuis 2025",
     headquartersEyebrow: "Siège social",
@@ -56,11 +56,11 @@ export const fr = {
     headquartersLocation: "Alger · Algérie",
   },
   services: {
-    eyebrow: "02 — Services",
+    eyebrow: "02 · Services",
     title1: "Notre",
     titleAccent: "Expertise",
     body:
-      "Du sourcing de fabricants algériens de confiance à la livraison des produits sur les marchés africains, Rizcore gère chaque étape du processus d'export.",
+      "Du sourcing de fabricants de confiance à la livraison des produits sur le continent, Rizcore gère chaque étape du processus d'export.",
     items: [
       { title: "Sourcing algérien", desc: "Sourcing direct auprès de fabricants, producteurs et coopératives algériens soigneusement sélectionnés." },
       { title: "Assurance qualité", desc: "Inspections produits et procédures qualité garantissant des standards prêts à l'export." },
@@ -71,12 +71,12 @@ export const fr = {
     ],
   },
   africa: {
-    eyebrow: "04 — Couloirs Commerciaux",
+    eyebrow: "04 · Couloirs Commerciaux",
     title1: "L'Algérie — la",
     titleAccent: "porte d'entrée stratégique de l'Afrique",
     title2: "",
     body:
-      "Ancré à Alger, Rizcore opère sur l'un des couloirs commerciaux les plus efficaces entre l'Afrique du Nord et l'Afrique de l'Ouest et Centrale. Une position géographique stratégique transformée en avantage logistique, permettant un sourcing, une distribution et des opérations transfrontalières fiables à travers la région.",
+      "Ancré à Alger, Rizcore opère sur l'un des couloirs les plus efficaces reliant le nord du continent à ses régions occidentales et centrales. Une position stratégique transformée en avantage logistique, permettant un sourcing, une distribution et des opérations transfrontalières fiables à travers la région.",
     activeLabel: "Marchés actifs",
     upcomingLabel: "Expansion à venir",
     legendHQ: "Siège",
@@ -85,11 +85,11 @@ export const fr = {
     gatewayCaption: "Alger · la porte d'entrée nord-africaine vers le continent",
   },
   products: {
-    eyebrow: "03 — Portefeuille",
+    eyebrow: "03 · Portefeuille",
     title1: "Nos Catégories",
     titleAccent: "d'Export",
     body:
-      "Rizcore exporte une gamme ciblée de produits algériens premium — de l'agro-alimentaire aux fournitures industrielles — soigneusement sélectionnés et prêts à l'export pour les distributeurs et acheteurs africains.",
+      "Découvrez une sélection de produits algériens soigneusement choisis pour répondre aux besoins des distributeurs et acheteurs industriels d'Afrique de l'Ouest et Centrale.",
     coreTag: "Expertise principale",
     onRequestTag: "Sur demande",
     learnMore: "Faire une demande",
@@ -116,13 +116,13 @@ export const fr = {
       },
     },
     ctaTitle: "Un secteur spécifique pour votre marché ?",
-    ctaBody: "Dites-nous ce qu'il vous faut — nous construisons l'offre depuis l'Algérie.",
+    ctaBody: "Dites-nous ce qu'il vous faut et nous construisons l'offre pour votre marché.",
     ctaLink: "Parler à notre équipe",
   },
   whyRizcore: {
     eyebrow: "Pourquoi Rizcore",
-    title: "Pourquoi Rizcore ?",
-    body: "Les raisons pour lesquelles les distributeurs et importateurs africains choisissent Rizcore comme partenaire de sourcing algérien.",
+    title: "Pourquoi choisir Rizcore",
+    body: "Les raisons pour lesquelles les distributeurs et importateurs du continent choisissent Rizcore comme partenaire de sourcing de confiance.",
     cards: [
       { title: "Réseau direct de fabricants", desc: "Travailler directement avec des producteurs algériens soigneusement sélectionnés." },
       { title: "Solutions sur mesure", desc: "Chaque marché exige une stratégie de sourcing personnalisée." },
@@ -133,12 +133,12 @@ export const fr = {
     ],
   },
   contact: {
-    eyebrow: "05 — Contact",
+    eyebrow: "05 · Contact",
     title1: "Construisons la prochaine",
     titleAccent: "route commerciale",
     title2: "ensemble.",
     body:
-      "Distributeur, détaillant ou acheteur industriel — notre desk export à Alger conçoit un partenariat sur mesure.",
+      "Distributeur, détaillant ou acheteur industriel, notre desk export à Alger conçoit un partenariat sur mesure.",
     hq: "Siège",
     desk: "Desk export",
     phone: "Téléphone · WhatsApp",

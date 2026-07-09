@@ -12,10 +12,7 @@ export function WhyRizcore() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.42_0.18_256_/_0.22),transparent_60%)]" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.3em] text-leaf font-medium">
-            {t("whyRizcore.eyebrow")}
-          </div>
-          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
             {t("whyRizcore.title")}
           </h2>
           <p className="mt-6 text-lg text-deep-foreground/70 leading-relaxed">

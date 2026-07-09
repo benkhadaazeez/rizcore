@@ -138,28 +138,6 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
-
-        <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6, duration: 0.9 }}
-          className="mt-10 flex flex-wrap gap-x-3 gap-y-3"
-        >
-          {[
-            { icon: "🇩🇿", label: (t("hero.trust", { returnObjects: true }) as string[])[0] },
-            { icon: "🤝", label: (t("hero.trust", { returnObjects: true }) as string[])[1] },
-            { icon: "🌍", label: (t("hero.trust", { returnObjects: true }) as string[])[2] },
-            { icon: "📦", label: (t("hero.trust", { returnObjects: true }) as string[])[3] },
-          ].map((b) => (
-            <li
-              key={b.label}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] backdrop-blur px-4 py-2 text-xs sm:text-[13px] font-medium text-deep-foreground/85"
-            >
-              <span className="text-sm leading-none">{b.icon}</span>
-              {b.label}
-            </li>
-          ))}
-        </motion.ul>
       </motion.div>
 
       <div className="absolute bottom-0 inset-x-0 z-30 border-t border-white/10 bg-deep/60 backdrop-blur-xl">

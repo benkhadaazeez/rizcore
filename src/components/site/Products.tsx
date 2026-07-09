@@ -154,8 +154,7 @@ function SectorCard({ p, i }: { p: Sector; i: number }) {
       </div>
 
       <div className="absolute bottom-0 inset-x-0 z-10 p-7 lg:p-8">
-        <div className="text-[10px] uppercase tracking-[0.3em] text-leaf">{tag}</div>
-        <h3 className="mt-3 font-display text-2xl lg:text-3xl font-bold leading-tight">
+        <h3 className="font-display text-2xl lg:text-3xl font-bold leading-tight">
           {name}
         </h3>
         <p className="mt-3 text-sm text-deep-foreground/70 max-w-md leading-relaxed">
