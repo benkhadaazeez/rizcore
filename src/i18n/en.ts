@@ -28,9 +28,9 @@ export const en = {
   },
   whyAlgeria: {
     eyebrow: "Why Algeria",
-    title: "Why Algeria?",
+    title: "Why Source from Algeria",
     body:
-      "Algeria combines strategic Mediterranean access, competitive manufacturing, high-quality agricultural production and growing industrial capabilities, making it a reliable sourcing hub for African markets.",
+      "Algeria combines strategic Mediterranean access, competitive manufacturing, high-quality agricultural production and growing industrial capacity, making it a reliable sourcing hub for the continent.",
     cards: [
       { title: "Strategic Location", desc: "Gateway between Europe, North Africa and Sub-Saharan Africa." },
       { title: "Premium Agricultural Products", desc: "Home to world-renowned dates, olive oil and high-quality agri-food products." },
@@ -39,16 +39,16 @@ export const en = {
     ],
   },
   about: {
-    eyebrow: "01 — About RIZCORE",
+    eyebrow: "01 · About RIZCORE",
     title1: "An Algerian export company",
     title2: "built for",
     titleAccent: "African markets",
     body:
-      "Founded in Algiers in 2025, Rizcore is an Algerian export and sourcing company connecting manufacturers with distributors, wholesalers and industrial buyers across West and Central Africa. Through reliable sourcing, export expertise and tailored supply solutions, we simplify international trade between Algeria and African markets.",
+      "Founded in Algiers in 2025, Rizcore is an export and sourcing company connecting trusted manufacturers with distributors, wholesalers and industrial buyers across West and Central Africa. Through reliable sourcing, export expertise and tailored supply solutions, we simplify cross-border trade for fast-growing markets.",
     pillar1Title: "Africa-focused",
     pillar1Body: "Building export bridges between Algerian producers and African markets.",
     pillar2Title: "Direct sourcing",
-    pillar2Body: "We select and purchase directly from Algerian producers — no intermediaries, premium grade only.",
+    pillar2Body: "We select and purchase directly from local producers, with no intermediaries and premium grade only.",
     badgeStatus: "Africa-focused",
     badgeEst: "Est. 2025",
     headquartersEyebrow: "Headquarters",
@@ -56,11 +56,11 @@ export const en = {
     headquartersLocation: "Algiers · Algeria",
   },
   services: {
-    eyebrow: "02 — Services",
+    eyebrow: "02 · Services",
     title1: "Our",
     titleAccent: "Expertise",
     body:
-      "From sourcing trusted Algerian manufacturers to delivering products across African markets, Rizcore manages every stage of the export process.",
+      "From sourcing trusted manufacturers to delivering products across the continent, Rizcore manages every stage of the export process.",
     items: [
       { title: "Algerian Sourcing", desc: "Direct sourcing from carefully selected Algerian manufacturers, producers and cooperatives." },
       { title: "Quality Assurance", desc: "Product inspections and quality procedures to ensure export-ready standards." },
@@ -71,12 +71,12 @@ export const en = {
     ],
   },
   africa: {
-    eyebrow: "04 — Trade Corridors",
+    eyebrow: "04 · Trade Corridors",
     title1: "Algeria — The Strategic",
     titleAccent: "African Gateway",
     title2: "",
     body:
-      "Anchored in Algiers, Rizcore operates along one of the most efficient trade corridors between North Africa and West & Central Africa. A strategic geographic position transformed into a logistical advantage, enabling reliable sourcing, distribution and cross-border trade operations across the region.",
+      "Anchored in Algiers, Rizcore operates along one of the most efficient corridors linking North Africa to the western and central regions of the continent. A strategic position transformed into a logistical advantage, enabling reliable sourcing, distribution and cross-border trade across the region.",
     activeLabel: "Active markets",
     upcomingLabel: "Upcoming expansion",
     legendHQ: "HQ",
@@ -85,11 +85,11 @@ export const en = {
     gatewayCaption: "Algiers · North Africa's gateway to the continent",
   },
   products: {
-    eyebrow: "03 — Portfolio",
+    eyebrow: "03 · Portfolio",
     title1: "Our Export",
     titleAccent: "Categories",
     body:
-      "Rizcore exports a focused range of premium Algerian products — from agri-food to industrial supplies — carefully selected and export-ready for African distributors and buyers.",
+      "Discover carefully selected Algerian products tailored to the needs of distributors and industrial buyers across West and Central Africa.",
     coreTag: "Core expertise",
     onRequestTag: "On request",
     learnMore: "Send an inquiry",
@@ -116,13 +116,13 @@ export const en = {
       },
     },
     ctaTitle: "Need a specific sector for your market?",
-    ctaBody: "Tell us what you need — we'll build the offer from Algeria.",
+    ctaBody: "Tell us what you need and we'll build the offer for your market.",
     ctaLink: "Talk to our team",
   },
   whyRizcore: {
     eyebrow: "Why Rizcore",
-    title: "Why Rizcore?",
-    body: "Reasons distributors and importers across Africa choose Rizcore as their Algerian sourcing partner.",
+    title: "Why Partner With Rizcore",
+    body: "The reasons distributors and importers across the continent choose Rizcore as their trusted sourcing partner.",
     cards: [
       { title: "Direct Manufacturer Network", desc: "Work directly with carefully selected Algerian producers." },
       { title: "Tailored Supply Solutions", desc: "Every market requires a customized sourcing strategy." },
@@ -133,12 +133,12 @@ export const en = {
     ],
   },
   contact: {
-    eyebrow: "05 — Contact",
+    eyebrow: "05 · Contact",
     title1: "Let's build the next",
     titleAccent: "trade route",
     title2: "together.",
     body:
-      "Distributor, retailer or industrial buyer — our export desk in Algiers will design a tailored partnership.",
+      "Distributor, retailer or industrial buyer, our export desk in Algiers will design a tailored partnership.",
     hq: "Headquarters",
     desk: "Export desk",
     phone: "Phone · WhatsApp",
