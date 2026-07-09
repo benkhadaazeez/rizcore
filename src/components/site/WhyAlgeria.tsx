@@ -12,10 +12,7 @@ export function WhyAlgeria() {
       <div className="pointer-events-none absolute -top-40 -right-40 size-[520px] rounded-full bg-brand/10 blur-[160px]" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-3xl">
-          <div className="text-xs uppercase tracking-[0.3em] text-brand font-medium">
-            {t("whyAlgeria.eyebrow")}
-          </div>
-          <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep leading-[1.05]">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep leading-[1.05]">
             {t("whyAlgeria.title")}
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
