@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import algiersImg from "@/assets/algiers-white-city.jpg";
+import algiersImg from "@/assets/about-warehouse.jpg";
 
 export function About() {
   const { t } = useTranslation();
@@ -48,10 +48,10 @@ export function About() {
           <div className="relative rounded-3xl overflow-hidden bg-deep shadow-card aspect-[4/5]">
             <img
               src={algiersImg}
-              alt="Algiers — Alger la Blanche, white Mediterranean architecture"
+              alt="Rizcore corporate warehouse — palletized export goods and container loading in Algiers"
               loading="lazy"
               width={1600}
-              height={1200}
+              height={1066}
               className="size-full object-cover opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/30 to-transparent" />
