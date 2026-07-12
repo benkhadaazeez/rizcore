@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX } from "./africa-data";
-import algiersImg from "@/assets/algiers-memorial-real.jpg";
+import algiersImg from "@/assets/trade-algiers-flag.jpg";
 
 type Hub = {
   name: keyof typeof AFRICA_CITIES;
@@ -44,10 +44,10 @@ export function AfricaMap() {
         >
           <img
             src={algiersImg}
-            alt="Maqam Echahid · Algiers"
+            alt="Algerian flag over the Bay of Algiers and its commercial port"
             loading="lazy"
             width={1920}
-            height={820}
+            height={1280}
             className="absolute inset-0 size-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
