@@ -44,7 +44,6 @@ export function Products() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-brand font-medium"
             >
-              <span className="h-px w-10 bg-brand" />
               {t("products.eyebrow")}
             </motion.div>
             <motion.h2
