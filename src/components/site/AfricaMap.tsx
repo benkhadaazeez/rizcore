@@ -16,13 +16,16 @@ const hubs: Hub[] = [
   { name: "Algiers", country: "HQ · Algeria", status: "hq", labelDx: 14, labelDy: -6 },
   { name: "Niamey", country: "Niger", status: "active", labelDx: -10, labelDy: -10, anchor: "end" },
   { name: "Abuja", country: "Nigeria", status: "active", labelDx: 12, labelDy: 5 },
-  { name: "Ouagadougou", country: "Burkina Faso", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
+  { name: "Ouagadougou", country: "Burkina Faso", status: "active", labelDx: -10, labelDy: -8, anchor: "end" },
+  { name: "Nouakchott", country: "Mauritania", status: "active", labelDx: -10, labelDy: 4, anchor: "end" },
   { name: "Abidjan", country: "Côte d'Ivoire", status: "upcoming", labelDx: -10, labelDy: 14, anchor: "end" },
   { name: "N'Djamena", country: "Chad", status: "upcoming", labelDx: 12, labelDy: -8 },
+  { name: "Conakry", country: "Guinea", status: "upcoming", labelDx: -10, labelDy: 14, anchor: "end" },
+  { name: "Bamako", country: "Mali", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
 ];
 
-const ACTIVE_ISO = new Set(["NER", "NGA"]);
-const UPCOMING_ISO = new Set(["BFA", "CIV", "TCD"]);
+const ACTIVE_ISO = new Set(["NER", "NGA", "BFA", "MRT"]);
+const UPCOMING_ISO = new Set(["CIV", "TCD", "GIN", "MLI"]);
 const HQ_ISO = "DZA";
 
 const algiers = AFRICA_CITIES["Algiers"];
@@ -83,14 +86,17 @@ export function AfricaMap() {
               <ul className="mt-3 space-y-1.5 text-deep-foreground/90 text-sm">
                 <li>Niger — Niamey</li>
                 <li>Nigeria — Abuja</li>
+                <li>Burkina Faso — Ouagadougou</li>
+                <li>Mauritania — Nouakchott</li>
               </ul>
             </div>
             <div>
               <div className="text-[10px] uppercase tracking-[0.3em] text-brand/80">{t("africa.upcomingLabel")}</div>
               <ul className="mt-3 space-y-1.5 text-deep-foreground/70 text-sm">
-                <li>Burkina Faso — Ouagadougou</li>
                 <li>Côte d'Ivoire — Abidjan</li>
                 <li>Chad — N'Djamena</li>
+                <li>Guinea — Conakry</li>
+                <li>Mali — Bamako</li>
               </ul>
             </div>
           </div>

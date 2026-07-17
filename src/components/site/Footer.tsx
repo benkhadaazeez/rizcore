@@ -35,7 +35,8 @@ export function Footer() {
           <div className="text-xs uppercase tracking-[0.25em] text-deep-foreground/50">{t("footer.contact")}</div>
           <ul className="mt-5 space-y-2 text-sm" dir="ltr">
             <li>Algiers, Algeria</li>
-            <li>contact.rizcore@gmail.com</li>
+            <li>contact@rizcore.dz</li>
+            <li>www.rizcore.dz</li>
             <li>+213 551 52 76 81</li>
           </ul>
         </div>

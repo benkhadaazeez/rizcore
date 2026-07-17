@@ -62,4 +62,7 @@ export const AFRICA_CITIES = {
   "Ouagadougou": { x: 123.1, y: 202.3 },
   "Abidjan": { x: 106.5, y: 257.8 },
   "N'Djamena": { x: 233.6, y: 204.4 },
+  "Nouakchott": { x: 28.0, y: 152.0 },
+  "Conakry": { x: 44.0, y: 232.0 },
+  "Bamako": { x: 82.0, y: 208.0 },
 } as const;
