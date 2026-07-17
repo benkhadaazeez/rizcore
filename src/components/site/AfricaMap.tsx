@@ -10,19 +10,22 @@ type Hub = {
   status: "hq" | "active" | "upcoming";
   labelDx?: number;
   labelDy?: number;
-  anchor?: "start" | "end";
+  anchor?: "start" | "end" | "middle";
 };
 
 const hubs: Hub[] = [
-  { name: "Algiers", country: "HQ · Algeria", status: "hq", labelDx: 14, labelDy: -6 },
-  { name: "Niamey", country: "Niger", status: "active", labelDx: -10, labelDy: -10, anchor: "end" },
-  { name: "Abuja", country: "Nigeria", status: "active", labelDx: 12, labelDy: 5 },
-  { name: "Ouagadougou", country: "Burkina Faso", status: "active", labelDx: -10, labelDy: -8, anchor: "end" },
-  { name: "Nouakchott", country: "Mauritania", status: "active", labelDx: -10, labelDy: 4, anchor: "end" },
-  { name: "Abidjan", country: "Côte d'Ivoire", status: "upcoming", labelDx: -10, labelDy: 14, anchor: "end" },
-  { name: "N'Djamena", country: "Chad", status: "upcoming", labelDx: 12, labelDy: -8 },
-  { name: "Conakry", country: "Guinea", status: "upcoming", labelDx: -10, labelDy: 14, anchor: "end" },
-  { name: "Bamako", country: "Mali", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
+  // HQ
+  { name: "Algiers", country: "", status: "hq", labelDx: 10, labelDy: -10, anchor: "start" },
+  // Active
+  { name: "Niamey", country: "", status: "active", labelDx: 0, labelDy: -10, anchor: "middle" },
+  { name: "Abuja", country: "", status: "active", labelDx: 12, labelDy: 4, anchor: "start" },
+  { name: "Ouagadougou", country: "", status: "active", labelDx: 6, labelDy: 16, anchor: "start" },
+  { name: "Nouakchott", country: "", status: "active", labelDx: 10, labelDy: 4, anchor: "start" },
+  // Upcoming
+  { name: "Bamako", country: "", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
+  { name: "Conakry", country: "", status: "upcoming", labelDx: 10, labelDy: 4, anchor: "start" },
+  { name: "Abidjan", country: "", status: "upcoming", labelDx: 0, labelDy: 16, anchor: "middle" },
+  { name: "N'Djamena", country: "", status: "upcoming", labelDx: 12, labelDy: -6, anchor: "start" },
 ];
 
 const ACTIVE_ISO = new Set(["NER", "NGA", "BFA", "MRT"]);
@@ -218,9 +221,8 @@ export function AfricaMap() {
                   ? "oklch(0.82 0.20 135)"
                   : "oklch(0.70 0.16 256)";
                 const r = isHq ? 5 : isActive ? 4.2 : 3.4;
-                // Force Algiers label outward to avoid clipping on small screens
-                const dx = h.name === "Algiers" ? 10 : (h.labelDx ?? 10);
-                const dy = h.name === "Algiers" ? -10 : (h.labelDy ?? 4);
+                const dx = h.labelDx ?? 10;
+                const dy = h.labelDy ?? 4;
                 return (
                   <g key={h.name}>
                     {(isHq || isActive) && (
@@ -256,24 +258,12 @@ export function AfricaMap() {
                         x={c.x + dx}
                         y={c.y + dy}
                         fill="oklch(0.98 0.005 240)"
-                        fontSize={isHq ? 11 : isActive ? 10 : 9}
+                        fontSize={isHq ? 12 : isActive ? 11 : 10}
                         fontWeight={isHq || isActive ? 700 : 500}
                         textAnchor={h.anchor ?? "start"}
-                        style={{ paintOrder: "stroke", stroke: "oklch(0.16 0.07 252)", strokeWidth: 3, strokeLinejoin: "round" }}
+                        style={{ paintOrder: "stroke", stroke: "oklch(0.16 0.07 252)", strokeWidth: 3.5, strokeLinejoin: "round" }}
                       >
                         {h.name}
-                      </text>
-                      <text
-                        x={c.x + dx}
-                        y={c.y + dy + 9}
-                        fill={color}
-                        fontSize={7}
-                        fontWeight={600}
-                        letterSpacing="1.2"
-                        textAnchor={h.anchor ?? "start"}
-                        style={{ textTransform: "uppercase", paintOrder: "stroke", stroke: "oklch(0.16 0.07 252)", strokeWidth: 2.5, strokeLinejoin: "round" }}
-                      >
-                        {h.country}
                       </text>
                     </motion.g>
                   </g>
