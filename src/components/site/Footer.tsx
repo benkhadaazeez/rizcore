@@ -36,6 +36,7 @@ export function Footer() {
           <ul className="mt-5 space-y-2 text-sm" dir="ltr">
             <li>Algiers, Algeria</li>
             <li>contact@rizcore.dz</li>
+            <li>www.rizcore.dz</li>
             <li>+213 551 52 76 81</li>
           </ul>
         </div>
