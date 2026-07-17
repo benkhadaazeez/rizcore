@@ -132,7 +132,7 @@ export function Navbar() {
               className="mt-10 text-xs uppercase tracking-[0.3em] text-deep-foreground/60"
             >
               Algiers · Algeria
-              <div className="mt-1 text-deep-foreground/80 normal-case tracking-normal text-sm">contact.rizcore@gmail.com</div>
+              <div className="mt-1 text-deep-foreground/80 normal-case tracking-normal text-sm">contact@rizcore.dz</div>
             </motion.div>
           </nav>
         </motion.div>

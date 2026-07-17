@@ -28,7 +28,7 @@ export function Contact() {
           <div className="mt-12 space-y-6">
             {[
               { Icon: MapPin, k: t("contact.hq"), v: "Algiers, Algeria" },
-              { Icon: Mail, k: t("contact.desk"), v: "contact.rizcore@gmail.com" },
+              { Icon: Mail, k: t("contact.desk"), v: "contact@rizcore.dz" },
               { Icon: Phone, k: t("contact.phone"), v: "+213 551 52 76 81" },
               { Icon: Clock, k: t("contact.hours"), v: t("contact.hoursValue") },
             ].map(({ Icon, k, v }) => (
