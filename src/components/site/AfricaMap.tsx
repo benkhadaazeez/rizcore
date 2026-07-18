@@ -112,12 +112,13 @@ export function AfricaMap() {
           transition={{ duration: 1 }}
           className="relative w-full"
         >
-          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden">
+          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden min-h-[320px]">
             <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(oklch(0.98_0.005_240)_1px,transparent_1px),linear-gradient(90deg,oklch(0.98_0.005_240)_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
               viewBox={AFRICA_VIEWBOX}
-              className="relative w-full h-auto"
-              style={{ overflow: "visible" }}
+              preserveAspectRatio="xMidYMid meet"
+              className="relative block w-full h-auto"
+              style={{ overflow: "hidden", maxWidth: "100%" }}
               role="img"
               aria-label="Africa export markets map"
             >
