@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX } from "./africa-data";
-import algiersAsset from "@/assets/trade-algiers.png.asset.json";
-const algiersImg = algiersAsset.url;
+const algiersImg = "/images/trade-algiers.png";
 
 type Hub = {
   name: keyof typeof AFRICA_CITIES;
