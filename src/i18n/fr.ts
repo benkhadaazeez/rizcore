@@ -3,8 +3,8 @@ export const fr = {
     home: "Accueil",
     about: "À Propos",
     services: "Services",
-    markets: "Couloirs Commerciaux",
-    products: "Portefeuille",
+    markets: "Réseau Commercial",
+    products: "Nos Produits",
     contact: "Contact",
     cta: "Devis",
   },
@@ -14,7 +14,7 @@ export const fr = {
     accent: "d'Algérie",
     title3: "vers les marchés africains.",
     lead:
-      "Rizcore est une société algérienne d'export et de distribution qui relie l'Algérie aux marchés d'Afrique de l'Ouest et Centrale via des couloirs commerciaux fiables, un sourcing premium et des solutions d'approvisionnement stratégiques.",
+      "Rizcore est une société algérienne spécialisée dans l'exportation et la distribution de produits algériens vers l'Afrique de l'Ouest et l'Afrique Centrale. Grâce à un réseau de partenaires fiables et à une expertise logistique éprouvée, nous facilitons les échanges commerciaux entre l'Algérie et les marchés africains.",
     ctaPrimary: "Notre Société",
     ctaSecondary: "Nos Services",
     lanes: "Couloirs actifs",
@@ -41,7 +41,7 @@ export const fr = {
   about: {
     eyebrow: "01 · À Propos de RIZCORE",
     title1: "Une société d'export algérienne",
-    title2: "pensée pour les",
+    title2: "au service des",
     titleAccent: "marchés africains",
     body:
       "Fondée à Alger en 2025, Rizcore est une société d'export et de sourcing qui relie des fabricants de confiance aux distributeurs, grossistes et acheteurs industriels d'Afrique de l'Ouest et Centrale. Grâce à un sourcing fiable, une expertise export et des solutions d'approvisionnement sur mesure, nous simplifions le commerce transfrontalier vers des marchés en pleine croissance.",
@@ -62,30 +62,30 @@ export const fr = {
     body:
       "Du sourcing de fabricants de confiance à la livraison des produits sur le continent, Rizcore gère chaque étape du processus d'export.",
     items: [
-      { title: "Sourcing algérien", desc: "Sourcing direct auprès de fabricants, producteurs et coopératives algériens soigneusement sélectionnés." },
+      { title: "Approvisionnement en Algérie", desc: "Sourcing direct auprès de fabricants, producteurs et coopératives algériens soigneusement sélectionnés." },
       { title: "Assurance qualité", desc: "Inspections produits et procédures qualité garantissant des standards prêts à l'export." },
       { title: "Logistique export", desc: "Solutions de fret maritime, aérien et terrestre optimisées pour les couloirs commerciaux africains." },
-      { title: "Accès au marché", desc: "Aider les distributeurs et entreprises à accéder à des produits algériens fiables pour les marchés africains." },
+      { title: "Développement commercial", desc: "Aider les distributeurs et entreprises à accéder à des produits algériens fiables pour les marchés africains." },
       { title: "Documentation & Conformité", desc: "Documentation export, procédures douanières, certifications et exigences réglementaires gérées avec professionnalisme." },
-      { title: "Solutions d'approvisionnement sur mesure", desc: "Stratégies de sourcing personnalisées selon les produits, volumes et marchés de destination de chaque client." },
+      { title: "Solutions d'approvisionnement personnalisées", desc: "Stratégies de sourcing personnalisées selon les produits, volumes et marchés de destination de chaque client." },
     ],
   },
   africa: {
-    eyebrow: "04 · Couloirs Commerciaux",
-    title1: "L'Algérie — la",
-    titleAccent: "porte d'entrée stratégique de l'Afrique",
+    eyebrow: "04 · Réseau Commercial",
+    title1: "L'Algérie,",
+    titleAccent: "un hub stratégique vers l'Afrique",
     title2: "",
     body:
       "Ancré à Alger, Rizcore opère sur l'un des couloirs les plus efficaces reliant le nord du continent à ses régions occidentales et centrales. Une position stratégique transformée en avantage logistique, permettant un sourcing, une distribution et des opérations transfrontalières fiables à travers la région.",
-    activeLabel: "Marchés actifs",
-    upcomingLabel: "Expansion à venir",
+    activeLabel: "Marchés desservis",
+    upcomingLabel: "Prochains marchés",
     legendHQ: "Siège",
     legendActive: "Actif",
     legendUpcoming: "À venir",
     gatewayCaption: "Alger · la porte d'entrée nord-africaine vers le continent",
   },
   products: {
-    eyebrow: "03 · Portefeuille",
+    eyebrow: "03 · Nos Produits",
     title1: "Nos Catégories",
     titleAccent: "d'Export",
     body:
@@ -138,9 +138,9 @@ export const fr = {
     titleAccent: "route commerciale",
     title2: "ensemble.",
     body:
-      "Distributeur, détaillant ou acheteur industriel, notre desk export à Alger conçoit un partenariat sur mesure.",
+      "Distributeur, détaillant ou acheteur industriel, notre équipe export à Alger conçoit un partenariat sur mesure.",
     hq: "Siège",
-    desk: "Desk export",
+    desk: "Équipe export",
     phone: "Téléphone · WhatsApp",
     hours: "Horaires",
     hoursValue: "Lun – Ven · 08:30 – 17:30 (GMT+1)",
@@ -157,6 +157,6 @@ export const fr = {
     explore: "Explorer",
     contact: "Contact",
     rights: "Tous droits réservés.",
-    line: "Algérie → Afrique. Couloirs commerciaux conçus avec rigueur.",
+    line: "De l'Algérie vers l'Afrique, des partenariats commerciaux bâtis sur la confiance.",
   },
 };
