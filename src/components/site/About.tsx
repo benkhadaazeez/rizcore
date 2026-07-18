@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import algiersAsset from "@/assets/about-rizcore.jpg.asset.json";
-const algiersImg = algiersAsset.url;
+const algiersImg = "/images/about-rizcore.jpg";
 
 export function About() {
   const { t } = useTranslation();

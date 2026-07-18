@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { MapPin, Wheat, Factory, Waypoints } from "lucide-react";
-import portAsset from "@/assets/why-algeria.jpg.asset.json";
-const portImg = portAsset.url;
+const portImg = "/images/why-algeria.jpg";
 
 const icons = [MapPin, Wheat, Factory, Waypoints];
 
