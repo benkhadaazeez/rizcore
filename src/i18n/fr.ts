@@ -138,7 +138,7 @@ export const fr = {
     titleAccent: "route commerciale",
     title2: "ensemble.",
     body:
-      "Distributeur, détaillant ou acheteur industriel, notre desk export à Alger conçoit un partenariat sur mesure.",
+      "Distributeur, détaillant ou acheteur industriel, notre équipe export à Alger conçoit un partenariat sur mesure.",
     hq: "Siège",
     desk: "Équipe export",
     phone: "Téléphone · WhatsApp",
