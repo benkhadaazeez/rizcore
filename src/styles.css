@@ -76,6 +76,20 @@
   --gradient-fade-down: linear-gradient(180deg, transparent 0%, oklch(0.16 0.07 252 / 0.85) 100%);
   --shadow-glow: 0 30px 80px -20px oklch(0.42 0.18 256 / 0.4);
   --shadow-card: 0 20px 50px -25px oklch(0.18 0.06 250 / 0.25);
+
+  /* Safari-safe SVG map palette. Keep as hex because older iPhone Safari drops oklch() inside SVG paint servers. */
+  --map-base-fill: #26507d;
+  --map-base-stroke: #6f93b8;
+  --map-active-fill: #78d957;
+  --map-active-stroke: #d9f8cf;
+  --map-upcoming-fill: #1f68ce;
+  --map-upcoming-stroke: #92baf5;
+  --map-hq-fill: #f8fafc;
+  --map-hq-stroke: #bdf4a8;
+  --map-route-active: #9bec70;
+  --map-route-upcoming: #5f9df0;
+  --map-label-fill: #f8fafc;
+  --map-label-stroke: #06152e;
 }
 
 @layer base {
@@ -135,5 +149,56 @@
     background-size: 3px 3px;
     pointer-events: none;
     mix-blend-mode: overlay;
+  }
+
+  .africa-map-svg .country-base {
+    fill: var(--map-base-fill);
+    stroke: var(--map-base-stroke);
+    stroke-opacity: 0.72;
+  }
+
+  .africa-map-svg .country-active {
+    fill: var(--map-active-fill);
+    stroke: var(--map-active-stroke);
+    stroke-opacity: 0.92;
+  }
+
+  .africa-map-svg .country-upcoming {
+    fill: var(--map-upcoming-fill);
+    stroke: var(--map-upcoming-stroke);
+    stroke-opacity: 0.9;
+  }
+
+  .africa-map-svg .country-hq {
+    fill: var(--map-hq-fill);
+    stroke: var(--map-hq-stroke);
+    stroke-opacity: 0.82;
+  }
+
+  .africa-map-svg .route-active {
+    stroke: var(--map-route-active);
+  }
+
+  .africa-map-svg .route-upcoming {
+    stroke: var(--map-route-upcoming);
+  }
+
+  .africa-map-svg .city-label {
+    fill: var(--map-label-fill);
+    stroke: var(--map-label-stroke);
+    paint-order: stroke;
+    stroke-linejoin: round;
+  }
+
+  .africa-map-svg .city-hq {
+    fill: var(--map-hq-fill);
+  }
+
+  .africa-map-svg .city-active {
+    fill: var(--map-active-fill);
+  }
+
+  .africa-map-svg .city-upcoming {
+    fill: var(--map-upcoming-fill);
   }
 }

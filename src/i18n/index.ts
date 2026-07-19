@@ -10,23 +10,14 @@ export const LANGS = [
   { code: "ar", label: "AR", name: "العربية", dir: "rtl" as const, flag: "🇩🇿" },
 ];
 
-const stored = typeof window !== "undefined" ? window.localStorage.getItem("rz_lang") : null;
-const initial = stored && ["en", "fr", "ar"].includes(stored) ? stored : "en";
-
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     resources: { en: { t: en }, fr: { t: fr }, ar: { t: ar } },
-    lng: initial,
+    lng: "en",
     fallbackLng: "en",
     defaultNS: "t",
     interpolation: { escapeValue: false },
   });
-}
-
-if (typeof document !== "undefined") {
-  const lang = LANGS.find((l) => l.code === initial)!;
-  document.documentElement.lang = lang.code;
-  document.documentElement.dir = lang.dir;
 }
 
 export default i18n;

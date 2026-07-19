@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { WhyAlgeria } from "@/components/site/WhyAlgeria";
@@ -12,6 +14,7 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { LANGS } from "@/i18n";
 import "@/i18n";
 
 export const Route = createFileRoute("/")({
@@ -27,6 +30,7 @@ function Index() {
       className="bg-background text-foreground"
     >
       <SmoothScroll />
+      <LanguageHydrator />
       <ScrollProgress />
       <Navbar />
       <Hero />
@@ -40,4 +44,26 @@ function Index() {
       <Footer />
     </motion.main>
   );
+}
+
+function LanguageHydrator() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const stored = window.localStorage.getItem("rz_lang");
+      const lang = LANGS.find((l) => l.code === stored);
+      if (!lang) return;
+
+      document.documentElement.lang = lang.code;
+      document.documentElement.dir = lang.dir;
+      if (i18n.language !== lang.code) {
+        i18n.changeLanguage(lang.code);
+      }
+    }, 150);
+
+    return () => window.clearTimeout(timer);
+  }, [i18n]);
+
+  return null;
 }
