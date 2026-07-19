@@ -50,15 +50,19 @@ function LanguageHydrator() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("rz_lang");
-    const lang = LANGS.find((l) => l.code === stored);
-    if (!lang) return;
+    const timer = window.setTimeout(() => {
+      const stored = window.localStorage.getItem("rz_lang");
+      const lang = LANGS.find((l) => l.code === stored);
+      if (!lang) return;
 
-    document.documentElement.lang = lang.code;
-    document.documentElement.dir = lang.dir;
-    if (i18n.language !== lang.code) {
-      i18n.changeLanguage(lang.code);
-    }
+      document.documentElement.lang = lang.code;
+      document.documentElement.dir = lang.dir;
+      if (i18n.language !== lang.code) {
+        i18n.changeLanguage(lang.code);
+      }
+    }, 150);
+
+    return () => window.clearTimeout(timer);
   }, [i18n]);
 
   return null;
