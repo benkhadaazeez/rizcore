@@ -20,16 +20,4 @@ if (!i18n.isInitialized) {
   });
 }
 
-if (typeof document !== "undefined") {
-  const applyLanguage = (code: string) => {
-    const lang = LANGS.find((l) => l.code === code) ?? LANGS[0];
-    document.documentElement.lang = lang.code;
-    document.documentElement.dir = lang.dir;
-  };
-
-  applyLanguage(i18n.language);
-
-  i18n.on("languageChanged", applyLanguage);
-}
-
 export default i18n;
