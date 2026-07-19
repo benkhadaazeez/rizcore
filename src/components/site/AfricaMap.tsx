@@ -162,17 +162,14 @@ export function AfricaMap() {
                 const d = `M${algiers.x},${algiers.y} Q${mx},${my} ${city.x},${city.y}`;
                 return (
                   <g key={h.name}>
-                    <motion.path
+                    <path
                       d={d}
                       fill="none"
                       className={isActive ? "route-active" : "route-upcoming"}
                       strokeWidth={isActive ? 1.4 : 1}
                       strokeOpacity={isActive ? 0.85 : 0.55}
                       strokeDasharray={isActive ? "0" : "3 3"}
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: isActive ? 0.85 : 0.55 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.4, delay: 0.7 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                      vectorEffect="non-scaling-stroke"
                     />
                     {isActive && (
                       <motion.circle r={2.2} className="city-active">
@@ -206,34 +203,23 @@ export function AfricaMap() {
                         transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.2 }}
                       />
                     )}
-                    <motion.circle
+                    <circle
                       cx={c.x}
                       cy={c.y}
                       r={r}
                       className={cityClass}
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
                     />
-                    <motion.g
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 1 + i * 0.08 }}
+                    <text
+                      x={c.x + dx}
+                      y={c.y + dy}
+                      className="city-label"
+                      fontSize={isMobile ? (isHq ? 11 : isActive ? 9.5 : 9) : (isHq ? 12 : isActive ? 11 : 10)}
+                      fontWeight={isHq || isActive ? 700 : 500}
+                      textAnchor={textAnchor}
+                      strokeWidth={isMobile ? 4.5 : 3.5}
                     >
-                      <text
-                        x={c.x + dx}
-                        y={c.y + dy}
-                        className="city-label"
-                        fontSize={isMobile ? (isHq ? 11 : isActive ? 9.5 : 9) : (isHq ? 12 : isActive ? 11 : 10)}
-                        fontWeight={isHq || isActive ? 700 : 500}
-                        textAnchor={textAnchor}
-                        strokeWidth={isMobile ? 4.5 : 3.5}
-                      >
-                        {h.name}
-                      </text>
-                    </motion.g>
+                      {h.name}
+                    </text>
                   </g>
                 );
               })}
