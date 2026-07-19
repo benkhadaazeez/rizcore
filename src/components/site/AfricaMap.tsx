@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX } from "./africa-data";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX, AFRICA_MOBILE_VIEWBOX } from "./africa-data";
 const algiersImg = "/images/trade-algiers.png";
 
 type Hub = {
@@ -9,22 +10,25 @@ type Hub = {
   status: "hq" | "active" | "upcoming";
   labelDx?: number;
   labelDy?: number;
+  mobileLabelDx?: number;
+  mobileLabelDy?: number;
   anchor?: "start" | "end" | "middle";
+  mobileAnchor?: "start" | "end" | "middle";
 };
 
 const hubs: Hub[] = [
   // HQ
-  { name: "Algiers", country: "", status: "hq", labelDx: 10, labelDy: -10, anchor: "start" },
+  { name: "Algiers", country: "", status: "hq", labelDx: 10, labelDy: -10, mobileLabelDx: 0, mobileLabelDy: -12, anchor: "start", mobileAnchor: "middle" },
   // Active
-  { name: "Niamey", country: "", status: "active", labelDx: 0, labelDy: -10, anchor: "middle" },
-  { name: "Abuja", country: "", status: "active", labelDx: 12, labelDy: 4, anchor: "start" },
-  { name: "Ouagadougou", country: "", status: "active", labelDx: 6, labelDy: 16, anchor: "start" },
-  { name: "Nouakchott", country: "", status: "active", labelDx: 10, labelDy: 4, anchor: "start" },
+  { name: "Niamey", country: "", status: "active", labelDx: 0, labelDy: -10, mobileLabelDx: 0, mobileLabelDy: -14, anchor: "middle" },
+  { name: "Abuja", country: "", status: "active", labelDx: 12, labelDy: 4, mobileLabelDx: 12, mobileLabelDy: 8, anchor: "start" },
+  { name: "Ouagadougou", country: "", status: "active", labelDx: 6, labelDy: 16, mobileLabelDx: 8, mobileLabelDy: 18, anchor: "start" },
+  { name: "Nouakchott", country: "", status: "active", labelDx: 10, labelDy: 4, mobileLabelDx: 12, mobileLabelDy: 4, anchor: "start" },
   // Upcoming
-  { name: "Bamako", country: "", status: "upcoming", labelDx: -10, labelDy: -8, anchor: "end" },
-  { name: "Conakry", country: "", status: "upcoming", labelDx: 10, labelDy: 4, anchor: "start" },
-  { name: "Abidjan", country: "", status: "upcoming", labelDx: 0, labelDy: 16, anchor: "middle" },
-  { name: "N'Djamena", country: "", status: "upcoming", labelDx: 12, labelDy: -6, anchor: "start" },
+  { name: "Bamako", country: "", status: "upcoming", labelDx: -10, labelDy: -8, mobileLabelDx: -12, mobileLabelDy: -12, anchor: "end" },
+  { name: "Conakry", country: "", status: "upcoming", labelDx: 10, labelDy: 4, mobileLabelDx: 10, mobileLabelDy: 12, anchor: "start" },
+  { name: "Abidjan", country: "", status: "upcoming", labelDx: 0, labelDy: 16, mobileLabelDx: 0, mobileLabelDy: 18, anchor: "middle" },
+  { name: "N'Djamena", country: "", status: "upcoming", labelDx: 12, labelDy: -6, mobileLabelDx: 12, mobileLabelDy: -8, anchor: "start" },
 ];
 
 const ACTIVE_ISO = new Set(["NER", "NGA", "BFA", "MRT"]);
@@ -35,6 +39,8 @@ const algiers = AFRICA_CITIES["Algiers"];
 
 export function AfricaMap() {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
+
   return (
     <section id="africa" className="relative bg-deep py-28 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.42_0.18_256_/_0.18),transparent_70%)]" />
@@ -112,64 +118,33 @@ export function AfricaMap() {
           transition={{ duration: 1 }}
           className="relative w-full"
         >
-          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden min-h-[320px]">
+          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-2 sm:p-6 overflow-hidden min-h-[360px]">
             <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(oklch(0.98_0.005_240)_1px,transparent_1px),linear-gradient(90deg,oklch(0.98_0.005_240)_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
-              viewBox={AFRICA_VIEWBOX}
+              viewBox={isMobile ? AFRICA_MOBILE_VIEWBOX : AFRICA_VIEWBOX}
               preserveAspectRatio="xMidYMid meet"
-              className="relative block w-full h-auto"
-              style={{ overflow: "hidden", maxWidth: "100%" }}
+              className="africa-map-svg relative block w-full h-auto min-h-[300px] sm:min-h-0"
+              style={{ overflow: "visible", maxWidth: "100%", WebkitTransform: "translateZ(0)" }}
               role="img"
               aria-label="Africa export markets map"
             >
-              <defs>
-                <linearGradient id="afrBase" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.32 0.10 252)" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="oklch(0.20 0.07 252)" stopOpacity="0.85" />
-                </linearGradient>
-                <linearGradient id="afrActive" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.82 0.20 135)" stopOpacity="0.85" />
-                  <stop offset="100%" stopColor="oklch(0.62 0.18 140)" stopOpacity="0.95" />
-                </linearGradient>
-                <linearGradient id="afrUpcoming" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.62 0.20 256)" stopOpacity="0.75" />
-                  <stop offset="100%" stopColor="oklch(0.42 0.18 256)" stopOpacity="0.85" />
-                </linearGradient>
-                <linearGradient id="afrHq" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.98 0.005 240)" stopOpacity="0.95" />
-                  <stop offset="100%" stopColor="oklch(0.85 0.02 240)" stopOpacity="0.95" />
-                </linearGradient>
-                <filter id="afrGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="b" />
-                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-                </filter>
-              </defs>
-
               <g>
                 {AFRICA_COUNTRIES.map((c, i) => {
                   const isHq = c.iso === HQ_ISO;
                   const isActive = ACTIVE_ISO.has(c.iso);
                   const isUpcoming = UPCOMING_ISO.has(c.iso);
-                  const fill = isHq
-                    ? "url(#afrHq)"
+                  const countryClass = isHq
+                    ? "country-hq"
                     : isActive
-                    ? "url(#afrActive)"
+                    ? "country-active"
                     : isUpcoming
-                    ? "url(#afrUpcoming)"
-                    : "url(#afrBase)";
-                  const stroke = isHq || isActive
-                    ? "oklch(0.95 0.05 135)"
-                    : isUpcoming
-                    ? "oklch(0.78 0.16 256)"
-                    : "oklch(0.55 0.10 230)";
-                  const strokeOp = isHq || isActive || isUpcoming ? 0.65 : 0.28;
+                    ? "country-upcoming"
+                    : "country-base";
                   return (
                     <motion.path
                       key={c.iso}
                       d={c.d}
-                      fill={fill}
-                      stroke={stroke}
-                      strokeOpacity={strokeOp}
+                      className={countryClass}
                       strokeWidth={0.6}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -193,7 +168,7 @@ export function AfricaMap() {
                     <motion.path
                       d={d}
                       fill="none"
-                      stroke={isActive ? "oklch(0.82 0.20 135)" : "oklch(0.70 0.16 256)"}
+                      className={isActive ? "route-active" : "route-upcoming"}
                       strokeWidth={isActive ? 1.4 : 1}
                       strokeOpacity={isActive ? 0.85 : 0.55}
                       strokeDasharray={isActive ? "0" : "3 3"}
@@ -203,7 +178,7 @@ export function AfricaMap() {
                       transition={{ duration: 1.4, delay: 0.7 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
                     />
                     {isActive && (
-                      <motion.circle r={2.2} fill="oklch(0.95 0.18 135)" filter="url(#afrGlow)">
+                      <motion.circle r={2.2} className="city-active">
                         <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
                       </motion.circle>
                     )}
@@ -215,14 +190,11 @@ export function AfricaMap() {
                 const c = AFRICA_CITIES[h.name];
                 const isHq = h.status === "hq";
                 const isActive = h.status === "active";
-                const color = isHq
-                  ? "oklch(0.98 0.005 240)"
-                  : isActive
-                  ? "oklch(0.82 0.20 135)"
-                  : "oklch(0.70 0.16 256)";
+                const cityClass = isHq ? "city-hq" : isActive ? "city-active" : "city-upcoming";
                 const r = isHq ? 5 : isActive ? 4.2 : 3.4;
-                const dx = h.labelDx ?? 10;
-                const dy = h.labelDy ?? 4;
+                const dx = isMobile ? h.mobileLabelDx ?? h.labelDx ?? 10 : h.labelDx ?? 10;
+                const dy = isMobile ? h.mobileLabelDy ?? h.labelDy ?? 4 : h.labelDy ?? 4;
+                const textAnchor = isMobile ? h.mobileAnchor ?? h.anchor ?? "start" : h.anchor ?? "start";
                 return (
                   <g key={h.name}>
                     {(isHq || isActive) && (
@@ -231,7 +203,7 @@ export function AfricaMap() {
                         cy={c.y}
                         r={r}
                         fill="none"
-                        stroke={color}
+                        className={cityClass}
                         strokeWidth={1.2}
                         animate={{ r: [r, r + 14], opacity: [0.7, 0] }}
                         transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.2 }}
@@ -241,8 +213,7 @@ export function AfricaMap() {
                       cx={c.x}
                       cy={c.y}
                       r={r}
-                      fill={color}
-                      filter="url(#afrGlow)"
+                      className={cityClass}
                       initial={{ scale: 0, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
@@ -257,11 +228,11 @@ export function AfricaMap() {
                       <text
                         x={c.x + dx}
                         y={c.y + dy}
-                        fill="oklch(0.98 0.005 240)"
-                        fontSize={isHq ? 12 : isActive ? 11 : 10}
+                        className="city-label"
+                        fontSize={isMobile ? (isHq ? 11 : isActive ? 9.5 : 9) : (isHq ? 12 : isActive ? 11 : 10)}
                         fontWeight={isHq || isActive ? 700 : 500}
-                        textAnchor={h.anchor ?? "start"}
-                        style={{ paintOrder: "stroke", stroke: "oklch(0.16 0.07 252)", strokeWidth: 3.5, strokeLinejoin: "round" }}
+                        textAnchor={textAnchor}
+                        strokeWidth={isMobile ? 4.5 : 3.5}
                       >
                         {h.name}
                       </text>
