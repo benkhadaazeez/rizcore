@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX, AFRICA_MOBILE_VIEWBOX } from "./africa-data";
@@ -47,13 +46,7 @@ export function AfricaMap() {
 
       {/* Cinematic Algiers strip */}
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-3xl overflow-hidden border border-white/10 shadow-card mb-20 aspect-[21/9] sm:aspect-[21/8]"
-        >
+        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-card mb-20 aspect-[21/9] sm:aspect-[21/8]">
           <img
             src={algiersImg}
             alt="Algerian flag over the Bay of Algiers and its commercial port"
@@ -72,16 +65,11 @@ export function AfricaMap() {
               {t("africa.gatewayCaption")}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-deep-foreground leading-[1.05]">
             {t("africa.title1")} <span className="text-gradient-brand">{t("africa.titleAccent")}</span>
           </h2>
@@ -109,15 +97,9 @@ export function AfricaMap() {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="relative w-full"
-        >
+        <div className="relative w-full">
           <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-2 sm:p-6 overflow-hidden min-h-[360px]">
             <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(oklch(0.98_0.005_240)_1px,transparent_1px),linear-gradient(90deg,oklch(0.98_0.005_240)_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
@@ -172,9 +154,9 @@ export function AfricaMap() {
                       vectorEffect="non-scaling-stroke"
                     />
                     {isActive && (
-                      <motion.circle r={2.2} className="city-active">
+                      <circle r={2.2} className="city-active">
                         <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
-                      </motion.circle>
+                      </circle>
                     )}
                   </g>
                 );
@@ -230,7 +212,7 @@ export function AfricaMap() {
               <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-brand" /> {t("africa.legendUpcoming")}</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
