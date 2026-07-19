@@ -78,8 +78,8 @@
   --shadow-card: 0 20px 50px -25px oklch(0.18 0.06 250 / 0.25);
 
   /* Safari-safe SVG map palette. Keep as hex because older iPhone Safari drops oklch() inside SVG paint servers. */
-  --map-base-fill: #17345b;
-  --map-base-stroke: #436a91;
+  --map-base-fill: #26507d;
+  --map-base-stroke: #6f93b8;
   --map-active-fill: #78d957;
   --map-active-stroke: #d9f8cf;
   --map-upcoming-fill: #1f68ce;
@@ -154,19 +154,19 @@
   .africa-map-svg .country-base {
     fill: var(--map-base-fill);
     stroke: var(--map-base-stroke);
-    stroke-opacity: 0.34;
+    stroke-opacity: 0.72;
   }
 
   .africa-map-svg .country-active {
     fill: var(--map-active-fill);
     stroke: var(--map-active-stroke);
-    stroke-opacity: 0.74;
+    stroke-opacity: 0.92;
   }
 
   .africa-map-svg .country-upcoming {
     fill: var(--map-upcoming-fill);
     stroke: var(--map-upcoming-stroke);
-    stroke-opacity: 0.72;
+    stroke-opacity: 0.9;
   }
 
   .africa-map-svg .country-hq {

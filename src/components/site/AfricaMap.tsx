@@ -128,8 +128,8 @@ export function AfricaMap() {
               role="img"
               aria-label="Africa export markets map"
             >
-              <g>
-                {AFRICA_COUNTRIES.map((c, i) => {
+              <g opacity={0.96}>
+                {AFRICA_COUNTRIES.map((c) => {
                   const isHq = c.iso === HQ_ISO;
                   const isActive = ACTIVE_ISO.has(c.iso);
                   const isUpcoming = UPCOMING_ISO.has(c.iso);
@@ -141,18 +141,15 @@ export function AfricaMap() {
                     ? "country-upcoming"
                     : "country-base";
                   return (
-                    <motion.path
+                    <path
                       key={c.iso}
                       d={c.d}
                       className={countryClass}
-                      strokeWidth={0.6}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.1 + (i % 30) * 0.015 }}
+                      strokeWidth={isMobile ? 0.9 : 0.65}
+                      vectorEffect="non-scaling-stroke"
                     >
                       <title>{c.name}</title>
-                    </motion.path>
+                    </path>
                   );
                 })}
               </g>
