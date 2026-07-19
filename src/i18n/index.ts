@@ -29,14 +29,6 @@ if (typeof document !== "undefined") {
 
   applyLanguage(i18n.language);
 
-  window.requestAnimationFrame(() => {
-    const stored = window.localStorage.getItem("rz_lang");
-    if (stored && ["en", "fr", "ar"].includes(stored) && stored !== i18n.language) {
-      i18n.changeLanguage(stored);
-      applyLanguage(stored);
-    }
-  });
-
   i18n.on("languageChanged", applyLanguage);
 }
 
