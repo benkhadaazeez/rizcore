@@ -192,15 +192,14 @@ export function AfricaMap() {
                 return (
                   <g key={h.name}>
                     {(isHq || isActive) && (
-                      <motion.circle
+                      <circle
                         cx={c.x}
                         cy={c.y}
-                        r={r}
+                        r={r + 5}
                         fill="none"
                         className={cityClass}
-                        strokeWidth={1.2}
-                        animate={{ r: [r, r + 14], opacity: [0.7, 0] }}
-                        transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.2 }}
+                        strokeWidth={0.9}
+                        opacity={0.38}
                       />
                     )}
                     <circle
