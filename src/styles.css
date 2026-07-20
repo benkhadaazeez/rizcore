@@ -201,4 +201,51 @@
   .africa-map-svg .city-upcoming {
     fill: var(--map-upcoming-fill);
   }
+
+  /* Premium map polish — Safari-safe */
+  .africa-map-svg .country-active,
+  .africa-map-svg .country-hq {
+    filter: drop-shadow(0 0 6px rgba(155, 236, 112, 0.35));
+  }
+  .africa-map-svg .country-upcoming {
+    filter: drop-shadow(0 0 5px rgba(95, 157, 240, 0.28));
+  }
+  .africa-map-svg .city-hq,
+  .africa-map-svg .city-active {
+    filter: drop-shadow(0 0 4px rgba(155, 236, 112, 0.7));
+  }
+  .africa-map-svg .route-active {
+    filter: drop-shadow(0 0 3px rgba(155, 236, 112, 0.55));
+  }
+
+  @keyframes map-pulse-ring {
+    0%   { transform: scale(0.6); opacity: 0.7; }
+    80%  { transform: scale(2.4); opacity: 0; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .africa-map-svg .pulse-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: map-pulse-ring 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    fill: none;
+    stroke-width: 1.1;
+  }
+  .africa-map-svg .pulse-ring.delay-1 { animation-delay: 0.9s; }
+  .africa-map-svg .pulse-ring.delay-2 { animation-delay: 1.8s; }
+
+  @keyframes map-route-dash {
+    to { stroke-dashoffset: -60; }
+  }
+  .africa-map-svg .route-flow {
+    stroke-dasharray: 6 6;
+    animation: map-route-dash 3.2s linear infinite;
+  }
+
+  @keyframes map-city-breathe {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.55; }
+  }
+  .africa-map-svg .city-hq {
+    animation: map-city-breathe 2.6s ease-in-out infinite;
+  }
 }
