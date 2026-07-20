@@ -100,8 +100,14 @@ export function AfricaMap() {
         </div>
 
         <div className="relative w-full">
-          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-2 sm:p-6 overflow-hidden min-h-[360px]">
-            <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(oklch(0.98_0.005_240)_1px,transparent_1px),linear-gradient(90deg,oklch(0.98_0.005_240)_1px,transparent_1px)] [background-size:40px_40px]" />
+          <div className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-sm p-2 sm:p-6 overflow-hidden min-h-[360px] shadow-card">
+            <div aria-hidden className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(248,250,252,1)_1px,transparent_1px),linear-gradient(90deg,rgba(248,250,252,1)_1px,transparent_1px)] [background-size:40px_40px]" />
+            <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(120,217,87,0.10),transparent_55%),radial-gradient(ellipse_at_75%_75%,rgba(31,104,206,0.14),transparent_60%)]" />
+            {/* Decorative corner crosshairs */}
+            <div aria-hidden className="absolute top-3 left-3 w-5 h-5 border-t border-l border-white/25" />
+            <div aria-hidden className="absolute top-3 right-3 w-5 h-5 border-t border-r border-white/25" />
+            <div aria-hidden className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-white/25" />
+            <div aria-hidden className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-white/25" />
             <svg
               viewBox={isMobile ? AFRICA_MOBILE_VIEWBOX : AFRICA_VIEWBOX}
               preserveAspectRatio="xMidYMid meet"
@@ -148,15 +154,29 @@ export function AfricaMap() {
                       d={d}
                       fill="none"
                       className={isActive ? "route-active" : "route-upcoming"}
-                      strokeWidth={isActive ? 1.4 : 1}
-                      strokeOpacity={isActive ? 0.85 : 0.55}
-                      strokeDasharray={isActive ? "0" : "3 3"}
+                      strokeWidth={isActive ? 1.6 : 1.1}
+                      strokeOpacity={isActive ? 0.35 : 0.35}
+                      strokeDasharray={isActive ? "0" : "3 4"}
                       vectorEffect="non-scaling-stroke"
                     />
                     {isActive && (
-                      <circle r={2.2} className="city-active">
-                        <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
-                      </circle>
+                      <>
+                        <path
+                          d={d}
+                          fill="none"
+                          className="route-active route-flow"
+                          strokeWidth={1.6}
+                          strokeOpacity={0.9}
+                          strokeLinecap="round"
+                          vectorEffect="non-scaling-stroke"
+                        />
+                        <circle r={2.4} className="city-active">
+                          <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
+                        </circle>
+                        <circle r={1.4} className="city-active" opacity={0.7}>
+                          <animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite" path={d} />
+                        </circle>
+                      </>
                     )}
                   </g>
                 );
@@ -173,16 +193,18 @@ export function AfricaMap() {
                 const textAnchor = isMobile ? h.mobileAnchor ?? h.anchor ?? "start" : h.anchor ?? "start";
                 return (
                   <g key={h.name}>
-                    {(isHq || isActive) && (
-                      <circle
-                        cx={c.x}
-                        cy={c.y}
-                        r={r + 5}
-                        fill="none"
-                        className={cityClass}
-                        strokeWidth={0.9}
-                        opacity={0.38}
-                      />
+                    {isHq && (
+                      <>
+                        <circle cx={c.x} cy={c.y} r={r} className="city-hq pulse-ring" />
+                        <circle cx={c.x} cy={c.y} r={r} className="city-hq pulse-ring delay-1" />
+                        <circle cx={c.x} cy={c.y} r={r} className="city-hq pulse-ring delay-2" />
+                      </>
+                    )}
+                    {isActive && (
+                      <>
+                        <circle cx={c.x} cy={c.y} r={r} className="city-active pulse-ring" />
+                        <circle cx={c.x} cy={c.y} r={r} className="city-active pulse-ring delay-1" />
+                      </>
                     )}
                     <circle
                       cx={c.x}
@@ -190,6 +212,9 @@ export function AfricaMap() {
                       r={r}
                       className={cityClass}
                     />
+                    {isHq && (
+                      <circle cx={c.x} cy={c.y} r={r + 2} fill="none" className="city-hq" strokeWidth={1} opacity={0.9} />
+                    )}
                     <text
                       x={c.x + dx}
                       y={c.y + dy}
@@ -206,10 +231,16 @@ export function AfricaMap() {
               })}
             </svg>
 
-            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-[0.25em] text-deep-foreground/70">
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-white" /> {t("africa.legendHQ")}</span>
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-leaf" /> {t("africa.legendActive")}</span>
-              <span className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-brand" /> {t("africa.legendUpcoming")}</span>
+            <div className="relative mt-5 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-deep-foreground/80">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5">
+                <span className="size-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]" /> {t("africa.legendHQ")}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5">
+                <span className="size-2 rounded-full bg-leaf shadow-[0_0_8px_rgba(120,217,87,0.9)]" /> {t("africa.legendActive")}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5">
+                <span className="size-2 rounded-full bg-brand shadow-[0_0_8px_rgba(31,104,206,0.9)]" /> {t("africa.legendUpcoming")}
+              </span>
             </div>
           </div>
         </div>
