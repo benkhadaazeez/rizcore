@@ -100,14 +100,8 @@ export function AfricaMap() {
         </div>
 
         <div className="relative w-full">
-          <div className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-sm p-2 sm:p-6 overflow-hidden min-h-[360px] shadow-card">
-            <div aria-hidden className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(248,250,252,1)_1px,transparent_1px),linear-gradient(90deg,rgba(248,250,252,1)_1px,transparent_1px)] [background-size:40px_40px]" />
-            <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(120,217,87,0.10),transparent_55%),radial-gradient(ellipse_at_75%_75%,rgba(31,104,206,0.14),transparent_60%)]" />
-            {/* Decorative corner crosshairs */}
-            <div aria-hidden className="absolute top-3 left-3 w-5 h-5 border-t border-l border-white/25" />
-            <div aria-hidden className="absolute top-3 right-3 w-5 h-5 border-t border-r border-white/25" />
-            <div aria-hidden className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-white/25" />
-            <div aria-hidden className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-white/25" />
+          <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden min-h-[320px]">
+            <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(248,250,252,1)_1px,transparent_1px),linear-gradient(90deg,rgba(248,250,252,1)_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
               viewBox={isMobile ? AFRICA_MOBILE_VIEWBOX : AFRICA_VIEWBOX}
               preserveAspectRatio="xMidYMid meet"

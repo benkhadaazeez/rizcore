@@ -35,8 +35,8 @@ export function WhyAlgeria() {
                 src={portImg}
                 alt="Port of Algiers at sunset — gateway for Algerian exports to West and Central Africa"
                 loading="lazy"
-                width={1600}
-                height={853}
+                width={1536}
+                height={1920}
                 className="size-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-deep/30 via-transparent to-transparent" />

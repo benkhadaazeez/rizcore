@@ -50,9 +50,9 @@ export function About() {
               src={algiersImg}
               alt="Rizcore corporate warehouse — palletized export goods and container loading in Algiers"
               loading="lazy"
-              width={1600}
-              height={1066}
-              className="size-full object-cover opacity-90"
+              width={1440}
+              height={1920}
+              className="size-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/30 to-transparent" />
             <div className="absolute top-6 inset-x-6 flex items-center justify-between text-deep-foreground/90">
