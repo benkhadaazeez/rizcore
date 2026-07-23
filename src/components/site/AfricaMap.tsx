@@ -110,24 +110,6 @@ export function AfricaMap() {
               role="img"
               aria-label="Africa export markets map"
             >
-              <defs>
-                <linearGradient id="mapBaseGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#2f5f92" />
-                  <stop offset="100%" stopColor="#1b3c60" />
-                </linearGradient>
-                <linearGradient id="mapActiveGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#8fe66e" />
-                  <stop offset="100%" stopColor="#5fb23e" />
-                </linearGradient>
-                <linearGradient id="mapUpcomingGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#3d82e0" />
-                  <stop offset="100%" stopColor="#164f9e" />
-                </linearGradient>
-                <linearGradient id="mapHqGrad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="100%" stopColor="#dbe6f0" />
-                </linearGradient>
-              </defs>
               <g opacity={0.96}>
                 {AFRICA_COUNTRIES.map((c) => {
                   const isHq = c.iso === HQ_ISO;
@@ -140,18 +122,10 @@ export function AfricaMap() {
                     : isUpcoming
                     ? "country-upcoming"
                     : "country-base";
-                  const countryFill = isHq
-                    ? "url(#mapHqGrad)"
-                    : isActive
-                    ? "url(#mapActiveGrad)"
-                    : isUpcoming
-                    ? "url(#mapUpcomingGrad)"
-                    : "url(#mapBaseGrad)";
                   return (
                     <path
                       key={c.iso}
                       d={c.d}
-                      style={{ fill: countryFill }}
                       className={countryClass}
                       strokeWidth={isMobile ? 0.9 : 0.65}
                       vectorEffect="non-scaling-stroke"
