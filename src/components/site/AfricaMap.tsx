@@ -37,7 +37,7 @@ export function AfricaMap() {
   const { t } = useTranslation();
   return (
     <section id="africa" className="relative bg-deep py-28 lg:py-40 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.42_0.18_256_/_0.18),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(31,104,206,0.18),transparent_70%)]" />
 
       {/* Cinematic Algiers strip */}
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
@@ -113,7 +113,7 @@ export function AfricaMap() {
           className="relative w-full"
         >
           <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden min-h-[320px]">
-            <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(oklch(0.98_0.005_240)_1px,transparent_1px),linear-gradient(90deg,oklch(0.98_0.005_240)_1px,transparent_1px)] [background-size:40px_40px]" />
+            <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(#f8fafc_1px,transparent_1px),linear-gradient(90deg,#f8fafc_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
               viewBox={AFRICA_VIEWBOX}
               preserveAspectRatio="xMidYMid meet"
@@ -124,20 +124,20 @@ export function AfricaMap() {
             >
               <defs>
                 <linearGradient id="afrBase" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.32 0.10 252)" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="oklch(0.20 0.07 252)" stopOpacity="0.85" />
+                  <stop offset="0%" stopColor="#2a4a72" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#14263d" stopOpacity="0.85" />
                 </linearGradient>
                 <linearGradient id="afrActive" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.82 0.20 135)" stopOpacity="0.85" />
-                  <stop offset="100%" stopColor="oklch(0.62 0.18 140)" stopOpacity="0.95" />
+                  <stop offset="0%" stopColor="#8fe66e" stopOpacity="0.85" />
+                  <stop offset="100%" stopColor="#4fa832" stopOpacity="0.95" />
                 </linearGradient>
                 <linearGradient id="afrUpcoming" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.62 0.20 256)" stopOpacity="0.75" />
-                  <stop offset="100%" stopColor="oklch(0.42 0.18 256)" stopOpacity="0.85" />
+                  <stop offset="0%" stopColor="#3d82e0" stopOpacity="0.75" />
+                  <stop offset="100%" stopColor="#1a4a94" stopOpacity="0.85" />
                 </linearGradient>
                 <linearGradient id="afrHq" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.98 0.005 240)" stopOpacity="0.95" />
-                  <stop offset="100%" stopColor="oklch(0.85 0.02 240)" stopOpacity="0.95" />
+                  <stop offset="0%" stopColor="#f8fafc" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#c9d6e3" stopOpacity="0.95" />
                 </linearGradient>
                 <filter id="afrGlow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="3" result="b" />
@@ -158,10 +158,10 @@ export function AfricaMap() {
                     ? "url(#afrUpcoming)"
                     : "url(#afrBase)";
                   const stroke = isHq || isActive
-                    ? "oklch(0.95 0.05 135)"
+                    ? "#e3ffd9"
                     : isUpcoming
-                    ? "oklch(0.78 0.16 256)"
-                    : "oklch(0.55 0.10 230)";
+                    ? "#7fb0f0"
+                    : "#6f93b8";
                   const strokeOp = isHq || isActive || isUpcoming ? 0.65 : 0.28;
                   return (
                     <motion.path
@@ -193,7 +193,7 @@ export function AfricaMap() {
                     <motion.path
                       d={d}
                       fill="none"
-                      stroke={isActive ? "oklch(0.82 0.20 135)" : "oklch(0.70 0.16 256)"}
+                      stroke={isActive ? "#78d957" : "#5f9df0"}
                       strokeWidth={isActive ? 1.4 : 1}
                       strokeOpacity={isActive ? 0.85 : 0.55}
                       strokeDasharray={isActive ? "0" : "3 3"}
@@ -203,7 +203,7 @@ export function AfricaMap() {
                       transition={{ duration: 1.4, delay: 0.7 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
                     />
                     {isActive && (
-                      <motion.circle r={2.2} fill="oklch(0.95 0.18 135)" filter="url(#afrGlow)">
+                      <motion.circle r={2.2} fill="#a8f584" filter="url(#afrGlow)">
                         <animateMotion dur="3.6s" repeatCount="indefinite" path={d} />
                       </motion.circle>
                     )}
@@ -216,10 +216,10 @@ export function AfricaMap() {
                 const isHq = h.status === "hq";
                 const isActive = h.status === "active";
                 const color = isHq
-                  ? "oklch(0.98 0.005 240)"
+                  ? "#f8fafc"
                   : isActive
-                  ? "oklch(0.82 0.20 135)"
-                  : "oklch(0.70 0.16 256)";
+                  ? "#78d957"
+                  : "#5f9df0";
                 const r = isHq ? 5 : isActive ? 4.2 : 3.4;
                 const dx = h.labelDx ?? 10;
                 const dy = h.labelDy ?? 4;
@@ -257,11 +257,11 @@ export function AfricaMap() {
                       <text
                         x={c.x + dx}
                         y={c.y + dy}
-                        fill="oklch(0.98 0.005 240)"
+                        fill="#f8fafc"
                         fontSize={isHq ? 12 : isActive ? 11 : 10}
                         fontWeight={isHq || isActive ? 700 : 500}
                         textAnchor={h.anchor ?? "start"}
-                        style={{ paintOrder: "stroke", stroke: "oklch(0.16 0.07 252)", strokeWidth: 3.5, strokeLinejoin: "round" }}
+                        style={{ paintOrder: "stroke", stroke: "#06152e", strokeWidth: 3.5, strokeLinejoin: "round" }}
                       >
                         {h.name}
                       </text>
