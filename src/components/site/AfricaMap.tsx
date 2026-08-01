@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AFRICA_COUNTRIES, AFRICA_CITIES, AFRICA_VIEWBOX } from "./africa-data";
 const algiersImg = "/images/trade-algiers.png";
@@ -33,8 +34,48 @@ const HQ_ISO = "DZA";
 
 const algiers = AFRICA_CITIES["Algiers"];
 
+function useIOSWebKitSvgReveal() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [isIOSWebKit, setIsIOSWebKit] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const iosWebKit = /AppleWebKit/i.test(navigator.userAgent)
+      && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    setIsIOSWebKit(iosWebKit);
+    if (!iosWebKit) return;
+
+    let frame = 0;
+    const revealWhenVisible = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const svg = svgRef.current;
+        if (!svg) return;
+        const rect = svg.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setIsVisible(true);
+          window.removeEventListener("scroll", revealWhenVisible);
+          window.removeEventListener("resize", revealWhenVisible);
+        }
+      });
+    };
+
+    revealWhenVisible();
+    window.addEventListener("scroll", revealWhenVisible, { passive: true });
+    window.addEventListener("resize", revealWhenVisible, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", revealWhenVisible);
+      window.removeEventListener("resize", revealWhenVisible);
+    };
+  }, []);
+
+  return { svgRef, isIOSWebKit, isVisible };
+}
+
 export function AfricaMap() {
   const { t } = useTranslation();
+  const { svgRef, isIOSWebKit, isVisible } = useIOSWebKitSvgReveal();
   return (
     <section id="africa" className="relative bg-deep py-28 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(31,104,206,0.18),transparent_70%)]" />
@@ -115,6 +156,7 @@ export function AfricaMap() {
           <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-3 sm:p-6 overflow-hidden min-h-[320px]">
             <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(#f8fafc_1px,transparent_1px),linear-gradient(90deg,#f8fafc_1px,transparent_1px)] [background-size:40px_40px]" />
             <svg
+              ref={svgRef}
               viewBox={AFRICA_VIEWBOX}
               preserveAspectRatio="xMidYMid meet"
               className="relative block w-full h-auto"
@@ -172,7 +214,8 @@ export function AfricaMap() {
                       strokeOpacity={strokeOp}
                       strokeWidth={0.6}
                       initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
+                      animate={isIOSWebKit ? { opacity: isVisible ? 1 : 0 } : undefined}
+                      whileInView={isIOSWebKit ? undefined : { opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.1 + (i % 30) * 0.015 }}
                     >
@@ -198,7 +241,11 @@ export function AfricaMap() {
                       strokeOpacity={isActive ? 0.85 : 0.55}
                       strokeDasharray={isActive ? "0" : "3 3"}
                       initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: isActive ? 0.85 : 0.55 }}
+                      animate={isIOSWebKit ? {
+                        pathLength: isVisible ? 1 : 0,
+                        opacity: isVisible ? (isActive ? 0.85 : 0.55) : 0,
+                      } : undefined}
+                      whileInView={isIOSWebKit ? undefined : { pathLength: 1, opacity: isActive ? 0.85 : 0.55 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.4, delay: 0.7 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
                     />
@@ -244,13 +291,18 @@ export function AfricaMap() {
                       fill={color}
                       filter="url(#afrGlow)"
                       initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
+                      animate={isIOSWebKit ? {
+                        scale: isVisible ? 1 : 0,
+                        opacity: isVisible ? 1 : 0,
+                      } : undefined}
+                      whileInView={isIOSWebKit ? undefined : { scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
                     />
                     <motion.g
                       initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
+                      animate={isIOSWebKit ? { opacity: isVisible ? 1 : 0 } : undefined}
+                      whileInView={isIOSWebKit ? undefined : { opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 1 + i * 0.08 }}
                     >
