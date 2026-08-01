@@ -82,6 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "canonical", href: "https://rizcore.dz/" },
       {
         rel: "stylesheet",
         href: appCss,
