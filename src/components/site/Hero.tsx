@@ -42,6 +42,8 @@ export function Hero() {
           className="size-full object-cover"
           width={1920}
           height={1080}
+          fetchPriority="high"
+          decoding="async"
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.7 }}
           transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
