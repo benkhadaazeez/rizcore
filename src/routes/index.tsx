@@ -16,9 +16,64 @@ import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { LANGS } from "@/i18n";
 import "@/i18n";
+import heroImg from "@/assets/hero-port.jpg";
+
+const TITLE = "RIZCORE | Algerian Export Company for African Markets";
+const DESCRIPTION =
+  "RIZCORE is an Algerian B2B export company in Algiers, sourcing and distributing premium Algerian dates, agri-food, industrial and construction goods to African and international markets.";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: "https://rizcore.dz/" },
+      { property: "og:locale", content: "en" },
+      { property: "og:locale:alternate", content: "fr" },
+      { property: "og:locale:alternate", content: "ar" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rizcore.dz/" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://rizcore.dz/" },
+      { rel: "alternate", hrefLang: "en", href: "https://rizcore.dz/" },
+      { rel: "alternate", hrefLang: "fr", href: "https://rizcore.dz/" },
+      { rel: "alternate", hrefLang: "ar", href: "https://rizcore.dz/" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "RIZCORE",
+          url: "https://rizcore.dz/",
+          image: "https://rizcore.dz/images/about-rizcore.jpg",
+          email: "contact@rizcore.dz",
+          telephone: "+213551527681",
+          priceRange: "$$",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Algiers",
+            addressCountry: "DZ",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+              opens: "08:00",
+              closes: "17:00",
+            },
+          ],
+        }),
+      },
+    ],
+  }),
 });
 
 function Index() {
