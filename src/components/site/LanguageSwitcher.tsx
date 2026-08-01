@@ -31,7 +31,9 @@ export function LanguageSwitcher({ variant = "navbar" }: { variant?: "navbar" | 
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        aria-label="Language"
+        aria-label="Select language"
+        aria-haspopup="menu"
+        aria-expanded={open}
         className={`inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-xl px-3.5 h-10 text-xs uppercase tracking-[0.2em] text-deep-foreground hover:border-leaf/60 transition-colors ${
           variant === "drawer" ? "w-fit" : ""
         }`}
