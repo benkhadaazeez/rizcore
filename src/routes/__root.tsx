@@ -75,14 +75,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "RIZCORE — Premium International Export" },
       { name: "description", content: "RIZCORE exports premium Algerian dates, orange blossom water, olive oil, margarine and private-label solutions across the world." },
       { name: "author", content: "RIZCORE" },
-      { property: "og:title", content: "RIZCORE — Premium International Export" },
-      { property: "og:description", content: "Premium Algerian export house connecting Africa and the world." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "RIZCORE" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "theme-color", content: "#0b1a33" },
     ],
     links: [
-      { rel: "canonical", href: "https://rizcore.dz/" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -92,6 +91,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Cairo:wght@300;400;500;600;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "RIZCORE",
+          url: "https://rizcore.dz/",
+          email: "contact@rizcore.dz",
+          telephone: "+213551527681",
+          foundingDate: "2025",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Algiers",
+            addressCountry: "DZ",
+          },
+          areaServed: ["DZ", "NE", "NG", "BF", "MR", "GN", "ML", "CI", "TD"],
+          description:
+            "Algerian export company sourcing, exporting and distributing Algerian dates, agri-food and industrial goods to African and international markets.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "RIZCORE",
+          url: "https://rizcore.dz/",
+          inLanguage: ["en", "fr", "ar"],
+        }),
       },
     ],
   }),
